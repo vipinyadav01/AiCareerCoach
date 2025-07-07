@@ -104,15 +104,15 @@ const HeroSection = () => {
                 </div>
 
                 {/* Container scroll section */}
-                <div className="mt-2 md:mt-0">
+                <div className="mt-10 md:mt-10 mb-0 md:mb-10 ">
                     <div className="flex flex-col overflow-hidden">
                         <ContainerScroll
                             titleComponent={
                                 <>
-                                    <h2 className="text-3xl md:text-5xl font-bold text-center mb-8">
+                                    <h2 className="text-3xl md:text-5xl font-bold text-center mb-10">
                                         Unleash the power of
                                         <br />
-                                        <span className="text-3xl md:text-6xl bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent font-extrabold mt-2 leading-none">
+                                        <span className="text-3xl md:text-6xl bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent font-extrabold mt-4 leading-none">
                                             AI Career Coaching
                                         </span>
                                     </h2>
