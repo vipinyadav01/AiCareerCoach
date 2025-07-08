@@ -16,7 +16,7 @@ export default function Home() {
         </div>
         <FeatureSection />
 
-        <section className="w-full py-12 md:py-20 bg-transparent">
+        <section className="w-full py-12 md:py-20 bg-white/40 dark:bg-gray-900/40 backdrop-blur-sm">
           <div className="container mx-auto px-4 md:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">Why Choose Our Platform?</h3>
