@@ -9,60 +9,26 @@ import {
   IconBulb,
   IconCertificate,
 } from "@tabler/icons-react";
+import { features } from "@/data/features";
+
+// Icon mapping object to convert string names to actual icon components
+const iconMap = {
+  IconBrain,
+  IconBriefcase,
+  IconChartLine,
+  IconFileText,
+  IconUsers,
+  IconTarget,
+  IconBulb,
+  IconCertificate,
+};
 
 export function FeatureSection() {
-  const features = [
-    {
-      title: "AI-Powered Career Guidance",
-      description:
-        "Get personalized career advice and insights powered by advanced AI technology.",
-      icon: <IconBrain />,
-    },
-    {
-      title: "Interview Preparation",
-      description:
-        "Practice with role-specific questions and get instant feedback to improve your performance.",
-      icon: <IconBriefcase />,
-    },
-    {
-      title: "Industry Insights",
-      description:
-        "Stay ahead with real-time industry trends, salary data, and market analysis.",
-      icon: <IconChartLine />,
-    },
-    {
-      title: "Smart Resume Creation",
-      description: "Generate ATS-optimized resumes with AI assistance and professional templates.",
-      icon: <IconFileText />,
-    },
-    {
-      title: "Networking Opportunities",
-      description: "Connect with industry professionals and expand your professional network.",
-      icon: <IconUsers />,
-    },
-    {
-      title: "Career Goal Setting",
-      description:
-        "Set and track your career milestones with personalized roadmaps and progress tracking.",
-      icon: <IconTarget />,
-    },
-    {
-      title: "Skill Development",
-      description:
-        "Identify skill gaps and get recommendations for courses and certifications.",
-      icon: <IconBulb />,
-    },
-    {
-      title: "Certification Tracking",
-      description: "Monitor your professional certifications and get renewal reminders.",
-      icon: <IconCertificate />,
-    },
-  ];
   return (
     <div className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 gap-8">
         {features.map((feature, index) => (
-          <Feature key={feature.title} {...feature} index={index} />
+          <Feature key={feature.id} {...feature} index={index} />
         ))}
       </div>
     </div>
@@ -75,6 +41,8 @@ const Feature = ({
   icon,
   index
 }) => {
+  const IconComponent = iconMap[icon];
+  
   return (
     <div
       className={cn(
@@ -84,7 +52,7 @@ const Feature = ({
         className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-blue-50 dark:from-blue-900/20 to-transparent pointer-events-none rounded-xl" />
       
       <div className="mb-4 relative z-10 text-blue-600 dark:text-blue-400">
-        {icon}
+        {IconComponent && <IconComponent />}
       </div>
       
       <div className="text-lg font-bold mb-3 relative z-10">
