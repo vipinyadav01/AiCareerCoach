@@ -1,26 +1,29 @@
-import { clerkMiddleware } from '@clerk/nextjs/server';
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
 
-const protectedRoutes = [
-  '/dashboard',
-  '/resume',
-  '/ai-cover-letter',
-  '/interview',
-  '/onboarding',
-];
-
-const isProtectedRoute = (req) => {
-  const path = req.nextUrl.pathname;
-  return protectedRoutes.some(route => path.startsWith(route));
-};
+const isProtectedRoute = createRouteMatcher([
+  '/dashboard(.*)',
+  '/resume(.*)',
+  '/ai-cover-letter(.*)',
+  '/interview(.*)',
+  '/onboarding(.*)',
+]);
 
 export default clerkMiddleware(async (auth, req) => {
-  const { userId } = await auth();
-  if (!userId && isProtectedRoute(req)) {
-    const { redirectToSignIn } = await auth();
-    return redirectToSignIn();
+  try {
+    if (isProtectedRoute(req)) {
+      const { userId } = await auth();
+      if (!userId) {
+        const signInUrl = new URL('/sign-in', req.url);
+        signInUrl.searchParams.set('redirect_url', req.url);
+        return NextResponse.redirect(signInUrl);
+      }
+    }
+    return NextResponse.next();
+  } catch (error) {
+    console.error('Clerk middleware error:', error);
+    return NextResponse.next();
   }
-  return NextResponse.next();
 });
 
 export const config = {
