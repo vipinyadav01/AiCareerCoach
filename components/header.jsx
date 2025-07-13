@@ -4,8 +4,10 @@ import Link from 'next/link'
 import { Button } from './ui/button'
 import { FileText, GraduationCap, LayoutDashboard, PenBox, StarsIcon, Menu } from 'lucide-react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
+import { checkUser } from '@/lib/checkUser'
 
-const Header = () => {
+const Header =  async () => {
+  await checkUser();
   return (
     <header className="fixed top-3 sm:top-6 left-0 right-0 px-2 sm:px-4 z-50">
       <div className="mx-auto max-w-6xl flex items-center justify-between border border-slate-200/50 dark:border-slate-700/50 bg-gradient-to-r from-black/95 to-indigo-950/95 backdrop-blur-md rounded-xl shadow-xl py-2 sm:py-3.5 px-3 sm:px-6 transition-all duration-300 hover:shadow-indigo-500/20">
