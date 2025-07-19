@@ -5,7 +5,6 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_DATABASE_URL")
 }
 
 model User {
@@ -83,11 +82,11 @@ model IndustryInsight {
   
   // Industry trends
   growthRate    Float     // Industry growth rate
-  demandLevel   demandLevel    // "High", "Medium", "Low"
+  demandLevel   String    // "High", "Medium", "Low"
   topSkills     String[]  // Most in-demand skills
   
   // Market conditions
-  marketOutlook marketOutlook    // "Positive", "Neutral", "Negative"
+  marketOutlook String    // "Positive", "Neutral", "Negative"
   keyTrends     String[]  // Array of current industry trends
   
   // Learning suggestions
