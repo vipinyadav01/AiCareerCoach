@@ -42,7 +42,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full py-16 md:py-24 bg-transparent backdrop-blur-sm">
+        <section className="w-full py-16 md:py-24 bg-transparent ">
           <div className="container mx-auto px-4 md:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h3 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
@@ -126,22 +126,22 @@ export default function Home() {
         </section>
 
         {/* Frequently Asked Questions */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
+        <section className="w-full py-16 md:py-24 bg-transparent ">
+          <div className="container mx-auto px-4 md:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
                 Frequently Asked Questions
-              </h2>
+              </h3>
               <p className="text-gray-700 dark:text-gray-200 max-w-3xl mx-auto text-lg">
                 Find answers to common questions about our platform
               </p>            
             </div>
-            <div className="max-w-6xl mx-auto">
-              <Accordion type="single" collapsible>
+            <div className="max-w-6xl mx-auto bg-transparent backdrop-blur-md border border-white/50 rounded-lg p-6">
+              <Accordion type="single" collapsible className="w-full">
                 {faqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger>{faq.question}</AccordionTrigger>
-                    <AccordionContent>{faq.answer}</AccordionContent>
+                  <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200 dark:border-gray-700">
+                    <AccordionTrigger className="text-gray-900 dark:text-white">{faq.question}</AccordionTrigger>
+                    <AccordionContent className="text-gray-700 dark:text-gray-200">{faq.answer}</AccordionContent>
                   </AccordionItem>
                 ))}
               </Accordion>
