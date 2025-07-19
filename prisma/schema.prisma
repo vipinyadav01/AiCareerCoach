@@ -83,3 +83,4 @@ model IndustryInsight {
 
   @@index([industry])
 }
+
