@@ -1,16 +1,21 @@
+
 import { getUserOnboardingStatus } from '@/actions/user';
 import { industries } from '@/data/industries';
 import { redirect } from 'next/dist/server/api-utils';
-import React from 'react'
+import React from 'react';
 import OnboardingForm from './_components/onboarding-form';
+import { checkUser } from '@/lib/checkUser';
+
 
 
 const onboardingPage = async () => {
+  // Ensure user exists in DB
+  await checkUser();
 
-  //check if user is already onboarded
+  // Check if user is already onboarded
   const { isOnboarded } = await getUserOnboardingStatus();
   if (isOnboarded) {
-    // If user is already onboarded, redirect to the home page  
+    // If user is already onboarded, redirect to the dashboard
     redirect("/dashboard");
   }
 
@@ -18,7 +23,7 @@ const onboardingPage = async () => {
     <main>
       <OnboardingForm industries={industries} />
     </main>
-  ) 
+  );
 }
 
 export default onboardingPage

@@ -52,16 +52,21 @@ const OnboardingForm = ({ industries }) => {
 
   const onSubmit = async (values) => {
     try {
-      const formattedIndustry = `${values.industry}-${values.subIndustry
-        .toLowerCase()
-        .replace(/ /g, "-")}`;
+      // Ensure subIndustry exists before using it
+      const formattedIndustry = values.subIndustry 
+        ? `${values.industry}-${values.subIndustry.toLowerCase().replace(/ /g, "-")}`
+        : values.industry;
 
+      // Add userId or session information if needed by the updateUser function
       await updateUserFn({
         ...values,
         industry: formattedIndustry,
+        // If your updateUser function requires a user ID, make sure it's passed here
+        // userId: currentUser?.id, // Uncomment and adapt based on your auth implementation
       });
     } catch (error) {
       console.error("Onboarding error:", error);
+      toast.error("Failed to update profile. Please try again.");
     }
   };
 
