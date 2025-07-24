@@ -1,15 +1,33 @@
+import { getIndustryInsights } from "@/actions/dashboard";
+import DashboardView from "./_components/dashboard-view";
 import { getUserOnboardingStatus } from "@/actions/user";
 import { redirect } from "next/navigation";
 
-const IndustryInsightPage = async () => {
-   const { isOnboarded } = await getUserOnboardingStatus();
+export default async function DashboardPage() {
+  try {
+    const { isOnboarded } = await getUserOnboardingStatus();
+
+    // If not onboarded, redirect to onboarding page
     if (!isOnboarded) {
-      // If user is not onboarded, redirect to the onboarding page
       redirect("/onboarding");
     }
-  return (
-    <div>Industry Insight Page</div>
-  )
-}
 
-export default IndustryInsightPage
+    const insights = await getIndustryInsights();
+
+    // Handle redirect response from getIndustryInsights
+    if (insights.redirect) {
+      redirect(insights.redirect);
+    }
+
+    return (
+      <div className="container mx-auto">
+        <DashboardView insights={insights.data || insights} />
+      </div>
+    );
+  } catch (error) {
+    console.error("Dashboard error:", error);
+    
+    // If database connection fails or user data is unavailable, redirect to onboarding
+    redirect("/onboarding");
+  }
+}

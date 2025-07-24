@@ -3,7 +3,7 @@
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
-import { success } from "zod";
+import { generateAIInsights } from "./dashboard";
 
 export async function updateUser(data) {
   const { userId } = await auth();
@@ -26,24 +26,20 @@ export async function updateUser(data) {
           },
         });
 
-        // If industry doesn't exist, create it using the transactional client `tx`
+        // If industry doesn't exist, create it with default values
         if (!industryInsight) {
-          industryInsight = await tx.industryInsight.create({
+          const insights = await generateAIInsights(data.industry);
+
+          industryInsight = await db.industryInsight.create({
             data: {
               industry: data.industry,
-              salaryRanges: [],
-              growthRate: 0,
-              demandLevel: "MEDIUM",
-              topSkills: [],
-              marketOutlook: "NEUTRAL",
-              keyTrends: [],
-              recommendedSkills: [],
-              nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days from now
+              ...insights,
+              nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
             },
           });
         }
 
-        // Now update the user using the transactional client `tx`
+        // Now update the user
         const updatedUser = await tx.user.update({
           where: {
             id: user.id,
@@ -59,15 +55,15 @@ export async function updateUser(data) {
         return { updatedUser, industryInsight };
       },
       {
-        timeout: 10000,
+        timeout: 10000, // default: 5000
       }
     );
 
     revalidatePath("/");
-    return {success: true, ...result}; 
+    return result.user;
   } catch (error) {
     console.error("Error updating user and industry:", error.message);
-    throw new Error("Failed to update profile: " + error.message);
+    throw new Error("Failed to update profile");
   }
 }
 
@@ -76,28 +72,24 @@ export async function getUserOnboardingStatus() {
   if (!userId) throw new Error("Unauthorized");
 
   try {
-    // Single, efficient database call
     const user = await db.user.findUnique({
-      where: {
-        clerkUserId: userId,
-      },
-      select: {
-        industry: true,
-      },
+      where: { clerkUserId: userId },
     });
 
-    // If the user doesn't exist in our DB at all, they are not onboarded.
     if (!user) {
+      // User doesn't exist, they need to go through onboarding
       return { isOnboarded: false };
     }
 
-    // `!!` converts the value to a boolean.
-    // True if `industry` is a non-empty string, false if it's null.
+    // Check if user has completed onboarding (has industry set)
     return {
       isOnboarded: !!user.industry,
     };
   } catch (error) {
-    console.error("Error checking onboarding status:", error.message);
-    throw new Error("Failed to check onboarding status");
+    console.error("Error checking onboarding status:", error);
+    
+    // If database is unreachable or any other error occurs,
+    // assume user is not onboarded to be safe
+    return { isOnboarded: false };
   }
 }
