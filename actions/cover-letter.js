@@ -104,6 +104,58 @@ export async function getCoverLetter(id) {
   });
 }
 
+export async function getCoverLetterById(id) {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+
+  const user = await db.user.findUnique({
+    where: { clerkUserId: userId },
+  });
+
+  if (!user) throw new Error("User not found");
+
+  return await db.coverLetter.findUnique({
+    where: {
+      id,
+      userId: user.id,
+    },
+  });
+}
+
+export async function updateCoverLetter(id, data) {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+
+  const user = await db.user.findUnique({
+    where: { clerkUserId: userId },
+  });
+
+  if (!user) throw new Error("User not found");
+
+  try {
+    const updatedCoverLetter = await db.coverLetter.update({
+      where: {
+        id,
+        userId: user.id,
+      },
+      data: {
+        jobTitle: data.jobTitle,
+        companyName: data.companyName,
+        jobDescription: data.jobDescription,
+        experience: data.experience,
+        skills: data.skills,
+        generatedContent: data.generatedContent,
+        updatedAt: new Date(),
+      },
+    });
+
+    return { success: true, data: updatedCoverLetter };
+  } catch (error) {
+    console.error("Error updating cover letter:", error);
+    return { success: false, error: error.message };
+  }
+}
+
 export async function deleteCoverLetter(id) {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
