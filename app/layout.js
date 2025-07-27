@@ -56,14 +56,6 @@ export const metadata = {
     },
   },
   manifest: "/manifest.json",
-  themeColor: "#EFEDE4",
-  colorScheme: "dark",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -101,6 +93,15 @@ export const metadata = {
   },
   category: "education",
   classification: "Career Development, AI Tools, Education Technology",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: "#EFEDE4",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }) {
