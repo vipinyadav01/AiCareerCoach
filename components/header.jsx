@@ -12,13 +12,15 @@ const Header = async () => {
     <header className="fixed top-2 sm:top-4 lg:top-6 left-0 right-0 px-2 sm:px-4 lg:px-6 z-50">
       <div className="mx-auto max-w-7xl flex items-center justify-between border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60 supports-[backdrop-filter]:backdrop-blur-sm rounded-2xl shadow-2xl shadow-black/40 py-3 sm:py-4 px-4 sm:px-8 transition-all duration-300 hover:shadow-primary/10 hover:border-primary/30">
         <div className="flex items-center">
+          <Link href="/" className="mr-3 flex items-center">
+            <img src="/apple-touch-icon.png" alt="Launch Track Logo" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full shadow-lg" />
+          </Link>
           <Link href="/" className="text-xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary hover:scale-105 transition-all duration-300 hover:from-primary/80 hover:via-primary hover:to-primary/80 drop-shadow-sm font-inter">
             Launch Track
           </Link>
         </div>
 
         <div className="flex items-center gap-3 sm:gap-6">
-          {/* Navigation Links - Hidden on mobile, visible on tablet+ */}
           <SignedIn>
             <div className="hidden md:flex items-center gap-4">
               <Link href="/dashboard" className="flex items-center group">
@@ -58,8 +60,6 @@ const Header = async () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-
-            {/* Mobile Menu - Visible only on mobile */}
             <div className="md:hidden  ">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -115,8 +115,6 @@ const Header = async () => {
               </DropdownMenu>
             </div>
           </SignedIn>
-
-          {/* Authentication */}
           <SignedOut>
             <div className="flex items-center gap-3 sm:gap-4">
               <Link href="/sign-in">
