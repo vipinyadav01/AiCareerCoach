@@ -5,6 +5,23 @@ const nextConfig = {
     images: {
         domains: ['images.unsplash.com'],
     },
+    webpack: (config, { isServer }) => {
+        // Prevent webpack from scanning protected system directories
+        config.watchOptions = {
+            ...config.watchOptions,
+            ignored: [
+                '**/node_modules/**',
+                '**/.*',
+                '**/*.swp',
+                '**/*.swo',
+                '**/*~',
+                '**/Application Data/**',
+                '**/AppData/**',
+                '**/.next/**',
+            ],
+        };
+        return config;
+    },
 };
 
 export default withPWA({
@@ -20,7 +37,7 @@ export default withPWA({
                 cacheName: 'offlineCache',
                 expiration: {
                     maxEntries: 200,
-                    maxAgeSeconds: 24 * 60 * 60, // 24 hours
+                    maxAgeSeconds: 24 * 60 * 60,
                 },
             },
         },
