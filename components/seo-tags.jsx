@@ -6,7 +6,7 @@ export default function SEOTags({
   title = "LaunchTrack - AI Career Coach | GLA University",
   description = "Your AI-powered career coach for personalized job search, interview preparation, and career guidance. From GLA University to global success.",
   keywords = [],
-  canonical = "https://launchtrack.com",
+  canonical = "https://launchtrack.vercel.app",
   ogImage = "/android-chrome-512x512.png",
   noindex = false,
   structuredData = null
@@ -60,12 +60,12 @@ export default function SEOTags({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
-      <meta property="og:image" content={`https://launchtrack.com${ogImage}`} />
+      <meta property="og:image" content={`https://launchtrack.vercel.app${ogImage}`} />
       
       {/* Twitter */}
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`https://launchtrack.com${ogImage}`} />
+      <meta name="twitter:image" content={`https://launchtrack.vercel.app${ogImage}`} />
       
       {/* Structured Data */}
       <script

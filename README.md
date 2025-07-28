@@ -12,7 +12,7 @@
   [![Prisma](https://img.shields.io/badge/Prisma-6.12.0-2D3748?style=for-the-badge&logo=prisma)](https://www.prisma.io/)
   [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-336791?style=for-the-badge&logo=postgresql)](https://www.postgresql.org/)
 
-  [Live Demo](https://launchtrack.com) • [Documentation](#documentation) • [Contributing](#contributing) • [Support](#support)
+  [Live Demo](https://launchtrack.vercel.app) • [Documentation](#documentation) • [Contributing](#contributing) • [Support](#support)
 </div>
 
 ---
@@ -523,7 +523,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Links
 
-- **Live Application:** [launchtrack.com](https://launchtrack.com)
+- **Live Application:** [launchtrack.com](https://launchtrack.vercel.app)
 - **Repository:** [GitHub](https://github.com/vipinyadav01/aicareercoach)
 - **Issues:** [GitHub Issues](https://github.com/vipinyadav01/aicareercoach/issues)
 - **Discussions:** [GitHub Discussions](https://github.com/vipinyadav01/aicareercoach/discussions)

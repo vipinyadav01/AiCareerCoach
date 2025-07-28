@@ -69,7 +69,7 @@ export const metadata = {
     siteName: "LaunchTrack - AI Career Coach",
     title: "LaunchTrack - AI Career Coach | GLA University",
     description: "Your AI-powered career coach for personalized job search, interview preparation, and career guidance. From GLA University to global success.",
-    url: "https://launchtrack.com",
+    url: "https://launchtrack.vercel.app",
     images: [
       {
         url: "/android-chrome-512x512.png",
@@ -89,7 +89,7 @@ export const metadata = {
     images: ["/android-chrome-512x512.png"],
   },
   alternates: {
-    canonical: "https://launchtrack.com",
+    canonical: "https://launchtrack.vercel.app",
   },
   category: "education",
   classification: "Career Development, AI Tools, Education Technology",
@@ -134,7 +134,7 @@ export default function RootLayout({ children }) {
         {/* SEO and Search Engine Tags */}
         <meta name="google-site-verification" content="your-google-verification-code" />
         <meta name="msvalidate.01" content="your-bing-verification-code" />
-        <link rel="canonical" href="https://launchtrack.com" />
+        <link rel="canonical" href="https://launchtrack.vercel.app" />
         
         {/* Geographic and Language Tags */}
         <meta name="geo.region" content="IN" />
@@ -158,7 +158,7 @@ export default function RootLayout({ children }) {
               "@type": "WebApplication",
               "name": "LaunchTrack - AI Career Coach",
               "description": "AI-powered career coach for job search, interview preparation, and career guidance",
-              "url": "https://launchtrack.com",
+              "url": "https://launchtrack.vercel.app",
               "applicationCategory": "EducationalApplication",
               "operatingSystem": "Any",
               "offers": {
@@ -181,8 +181,8 @@ export default function RootLayout({ children }) {
         <meta property="og:title" content="LaunchTrack - AI Career Coach | GLA University" />
         <meta property="og:description" content="Your AI-powered career coach for personalized job search, interview preparation, and career guidance. From GLA University to global success." />
         <meta property="og:site_name" content="LaunchTrack" />
-        <meta property="og:url" content="https://launchtrack.com" />
-        <meta property="og:image" content="https://launchtrack.com/android-chrome-512x512.png" />
+        <meta property="og:url" content="https://launchtrack.vercel.app" />
+        <meta property="og:image" content="https://launchtrack.vercel.app/android-chrome-512x512.png" />
         <meta property="og:image:width" content="512" />
         <meta property="og:image:height" content="512" />
         <meta property="og:image:alt" content="LaunchTrack - AI Career Coach Logo" />
@@ -194,7 +194,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:creator" content="@LaunchTrack" />
         <meta name="twitter:title" content="LaunchTrack - AI Career Coach | GLA University" />
         <meta name="twitter:description" content="Your AI-powered career coach for personalized job search, interview preparation, and career guidance." />
-        <meta name="twitter:image" content="https://launchtrack.com/android-chrome-512x512.png" />
+        <meta name="twitter:image" content="https://launchtrack.vercel.app/android-chrome-512x512.png" />
         <meta name="twitter:image:alt" content="LaunchTrack - AI Career Coach Logo" />
       </head>
       <body

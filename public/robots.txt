@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://launchtrack.com/sitemap.xml
+Sitemap: https://launchtrack.vercel.app/sitemap.xml
 
 # Block sensitive areas
 Disallow: /api/
