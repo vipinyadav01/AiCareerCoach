@@ -3,7 +3,7 @@
 import Head from 'next/head';
 
 export default function SEOTags({ 
-  title = "LaunchTrack - AI Career Coach | GLA University",
+  title = "LaunchTrack - AI Career Coach | Vipin Yadav",
   description = "Your AI-powered career coach for personalized job search, interview preparation, and career guidance. From GLA University to global success.",
   keywords = [],
   canonical = "https://launchtrack.vercel.app",
