@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import Header from "@/components/header";
+import HeaderWrapper from "@/components/header-wrapper";
 import PWAInstallPrompt from "@/components/pwa-install-prompt";
 import PWAStatus from "@/components/pwa-status";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -288,7 +288,7 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
           >
             {/* Header */}
-            <Header/>
+            <HeaderWrapper/>
             <main className="min-h-screen">
 {children}
             </main>

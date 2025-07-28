@@ -1,13 +1,14 @@
+"use client"
+
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import React from 'react'
 import Link from 'next/link'
 import { Button } from './ui/button'
 import { FileText, GraduationCap, LayoutDashboard, PenBox, StarsIcon, Menu } from 'lucide-react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
-import { checkUser } from '@/lib/checkUser'
+import { ThemeToggle } from './theme-toggle'
 
-const Header = async () => {
-  await checkUser();
+const Header = () => {
   return (
     <header className="fixed top-2 sm:top-4 lg:top-6 left-0 right-0 px-2 sm:px-4 lg:px-6 z-50">
       <div className="mx-auto max-w-7xl flex items-center justify-between border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60 supports-[backdrop-filter]:backdrop-blur-sm rounded-2xl shadow-2xl shadow-black/40 py-3 sm:py-4 px-4 sm:px-8 transition-all duration-300 hover:shadow-primary/10 hover:border-primary/30">
@@ -129,6 +130,9 @@ const Header = async () => {
               </Link>
             </div>
           </SignedOut>
+          
+          <ThemeToggle />
+          
           <SignedIn>
             <UserButton
               appearance={{
