@@ -2,18 +2,41 @@
 
 <div align="center">
   <img src="./public/android-chrome-512x512.png" alt="LaunchTrack Logo" width="128" height="128" />
-  
-  **An AI-powered career coaching platform built with Next.js, Clerk authentication, and PostgreSQL database NEON and Inngest.**
-  
-  [![Next.js](https://img.shields.io/badge/Next.js-15.3.4-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-  [![React](https://img.shields.io/badge/React-19.0.0-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-  [![Prisma](https://img.shields.io/badge/Prisma-6.12.0-2D3748?style=for-the-badge&logo=prisma)](https://www.prisma.io/)
-  [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-336791?style=for-the-badge&logo=postgresql)](https://www.postgresql.org/)
 
-  [Live Demo](https://launchtrack.vercel.app) • [Documentation](#documentation) • [Contributing](#contributing) • [Support](#support)
+  <h2><strong>LaunchTrack</strong></h2>
+  <p><em>An AI-powered career coaching platform built with Next.js, Clerk authentication, PostgreSQL (NEON), and Inngest.</em></p>
+
+  <!-- Tech Stack Badges -->
+  <p>
+    <a href="https://nextjs.org/">
+      <img src="https://img.shields.io/badge/Next.js-15.3.4-black?style=for-the-badge&logo=next.js" alt="Next.js Badge" />
+    </a>
+    <a href="https://reactjs.org/">
+      <img src="https://img.shields.io/badge/React-19.0.0-blue?style=for-the-badge&logo=react" alt="React Badge" />
+    </a>
+    <a href="https://www.javascript.com/">
+      <img src="https://img.shields.io/badge/JavaScript-ES2024-yellow?style=for-the-badge&logo=javascript" alt="JavaScript Badge" />
+    </a>
+    <a href="https://tailwindcss.com/">
+      <img src="https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css" alt="Tailwind CSS Badge" />
+    </a>
+    <a href="https://www.prisma.io/">
+      <img src="https://img.shields.io/badge/Prisma-6.12.0-2D3748?style=for-the-badge&logo=prisma" alt="Prisma Badge" />
+    </a>
+    <a href="https://www.postgresql.org/">
+      <img src="https://img.shields.io/badge/PostgreSQL-14%2B-336791?style=for-the-badge&logo=postgresql" alt="PostgreSQL Badge" />
+    </a>
+  </p>
+
+  <!-- Useful Links -->
+  <p>
+    <a href="https://launchtrack.vercel.app"><strong>Live Demo</strong></a> • 
+    <a href="#documentation"><strong>Documentation</strong></a> • 
+    <a href="#contributing"><strong>Contributing</strong></a> • 
+    <a href="#support"><strong>Support</strong></a>
+  </p>
 </div>
+
 
 ---
 
