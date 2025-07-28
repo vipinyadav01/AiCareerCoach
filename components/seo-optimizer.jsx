@@ -1,0 +1,131 @@
+import React from 'react';
+
+const SEOOptimizer = ({ 
+  pageTitle, 
+  pageDescription, 
+  pageKeywords = [], 
+  pageUrl, 
+  pageType = 'website',
+  structuredData = null,
+  breadcrumbs = []
+}) => {
+  // Generate breadcrumb structured data
+  const breadcrumbStructuredData = breadcrumbs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "item": item.url
+    }))
+  } : null;
+
+  return (
+    <>
+      {/* Page-specific meta tags */}
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content={pageKeywords.join(', ')} />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:type" content={pageType} />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={pageDescription} />
+      
+      {/* Breadcrumb structured data */}
+      {breadcrumbStructuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbStructuredData)
+          }}
+        />
+      )}
+      
+      {/* Custom structured data */}
+      {structuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData)
+          }}
+        />
+      )}
+      
+      {/* FAQ structured data for FAQ pages */}
+      {pageType === 'faq' && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What is LaunchTrack?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "LaunchTrack is an AI-powered career coaching platform that helps professionals with job search, interview preparation, cover letter generation, and career guidance."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How does LaunchTrack help with job search?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "LaunchTrack provides personalized job search assistance, resume optimization, interview practice, and industry insights to help you find your dream job."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Is LaunchTrack free to use?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, LaunchTrack offers free access to its core features including AI career coaching, interview preparation, and resume building tools."
+                  }
+                }
+              ]
+            })
+          }}
+        />
+      )}
+      
+      {/* Article structured data for blog/content pages */}
+      {pageType === 'article' && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": pageTitle,
+              "description": pageDescription,
+              "author": {
+                "@type": "Person",
+                "name": "Vipin Yadav"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "LaunchTrack",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://launchtrack.vercel.app/android-chrome-512x512.png"
+                }
+              },
+              "datePublished": new Date().toISOString(),
+              "dateModified": new Date().toISOString(),
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": pageUrl
+              }
+            })
+          }}
+        />
+      )}
+    </>
+  );
+};
+
+export default SEOOptimizer; 

@@ -15,16 +15,15 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://launchtrack.vercel.app'),
   title: {
-    default: "LaunchTrack - AI Career Coach | Vipin Yadav",
+    default: "LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep",
     template: "%s | LaunchTrack - AI Career Coach"
   },
-  description: "LaunchTrack - Your AI-powered career coach for personalized job search, interview preparation, cover letter generation, and career guidance. From GLA University students to professionals worldwide.",
+  description: "Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, cover letter generation, and career guidance. From GLA University students to professionals worldwide.",
   keywords: [
     "LaunchTrack",
-    "LaunchTrack GLA",
     "AI Career Coach",
-    "GLA University",
     "Job Search AI",
     "Interview Preparation",
     "Cover Letter Generator",
@@ -36,14 +35,24 @@ export const metadata = {
     "Resume Builder",
     "Career Coaching",
     "Employment Assistant",
-    "Vipin Yadav01",
+    "GLA University",
     "Vipin Yadav",
-    "Vipin Yadav AI Career Coach"
-
+    "Career Technology",
+    "AI Career Tools",
+    "Job Search Platform",
+    "Interview Practice",
+    "Career Success",
+    "Professional Development",
+    "AI Career Advisor",
+    "Job Application Help",
+    "Career Planning",
+    "Employment Guidance"
   ],
-  authors: [{ name: "Vipin Yadav" }],
+  authors: [{ name: "Vipin Yadav", url: "https://github.com/vipinyadav01" }],
   creator: "LaunchTrack - Vipin Yadav",
   publisher: "LaunchTrack",
+  category: "education",
+  classification: "Career Development, AI Tools, Education Technology, Job Search",
   robots: {
     index: true,
     follow: true,
@@ -67,8 +76,8 @@ export const metadata = {
   openGraph: {
     type: "website",
     siteName: "LaunchTrack - AI Career Coach",
-    title: "LaunchTrack - AI Career Coach | GLA University",
-    description: "Your AI-powered career coach for personalized job search, interview preparation, and career guidance. From GLA University to global success.",
+    title: "LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep",
+    description: "Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, cover letter generation, and career guidance.",
     url: "https://launchtrack.vercel.app",
     images: [
       {
@@ -76,7 +85,15 @@ export const metadata = {
         width: 512,
         height: 512,
         alt: "LaunchTrack - AI Career Coach Logo",
+        type: "image/png",
       },
+      {
+        url: "/banner.png",
+        width: 1200,
+        height: 630,
+        alt: "LaunchTrack - AI Career Coach Banner",
+        type: "image/png",
+      }
     ],
     locale: "en_US",
   },
@@ -84,15 +101,18 @@ export const metadata = {
     card: "summary_large_image",
     site: "@LaunchTrack",
     creator: "@LaunchTrack",
-    title: "LaunchTrack - AI Career Coach | GLA University",
-    description: "Your AI-powered career coach for personalized job search, interview preparation, and career guidance.",
+    title: "LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep",
+    description: "Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, and career guidance.",
     images: ["/android-chrome-512x512.png"],
   },
   alternates: {
     canonical: "https://launchtrack.vercel.app",
   },
-  category: "education",
-  classification: "Career Development, AI Tools, Education Technology",
+  verification: {
+    google: "your-google-verification-code",
+    yandex: "your-yandex-verification-code",
+    yahoo: "your-yahoo-verification-code",
+  },
 };
 
 export const viewport = {
@@ -148,8 +168,14 @@ export default function RootLayout({ children }) {
         <meta name="referrer" content="origin-when-cross-origin" />
         <meta name="theme-color" content="#EFEDE4" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#070D0D" media="(prefers-color-scheme: dark)" />
+        <meta name="author" content="Vipin Yadav" />
+        <meta name="copyright" content="LaunchTrack" />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="distribution" content="Global" />
+        <meta name="rating" content="general" />
+        <meta name="revisit-after" content="7 days" />
         
-        {/* JSON-LD Structured Data */}
+        {/* Enhanced JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -161,25 +187,73 @@ export default function RootLayout({ children }) {
               "url": "https://launchtrack.vercel.app",
               "applicationCategory": "EducationalApplication",
               "operatingSystem": "Any",
+              "browserRequirements": "Requires JavaScript. Requires HTML5.",
               "offers": {
                 "@type": "Offer",
                 "price": "0",
-                "priceCurrency": "USD"
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock"
               },
               "creator": {
-                "@type": "Organization",
-                "name": "GLA University",
-                "url": "https://gla.ac.in"
+                "@type": "Person",
+                "name": "Vipin Yadav",
+                "url": "https://github.com/vipinyadav01"
               },
-              "keywords": "AI Career Coach, Job Search, Interview Preparation, GLA University, LaunchTrack"
+              "publisher": {
+                "@type": "Organization",
+                "name": "LaunchTrack",
+                "url": "https://launchtrack.vercel.app"
+              },
+              "keywords": "AI Career Coach, Job Search, Interview Preparation, GLA University, LaunchTrack, Career Development",
+              "featureList": [
+                "AI-powered job search assistance",
+                "Interview preparation tools",
+                "Cover letter generation",
+                "Career guidance and planning",
+                "Resume optimization",
+                "Industry insights"
+              ],
+              "screenshot": "https://launchtrack.vercel.app/android-chrome-512x512.png",
+              "softwareVersion": "1.0.0",
+              "datePublished": "2024-01-01",
+              "dateModified": new Date().toISOString().split('T')[0]
+            })
+          }}
+        />
+        
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "LaunchTrack",
+              "url": "https://launchtrack.vercel.app",
+              "logo": "https://launchtrack.vercel.app/android-chrome-512x512.png",
+              "description": "AI-powered career coaching platform",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Mathura",
+                "addressRegion": "Uttar Pradesh",
+                "addressCountry": "IN"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "availableLanguage": "English"
+              },
+              "sameAs": [
+                "https://github.com/vipinyadav01"
+              ]
             })
           }}
         />
         
         {/* Open Graph Tags */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="LaunchTrack - AI Career Coach | GLA University" />
-        <meta property="og:description" content="Your AI-powered career coach for personalized job search, interview preparation, and career guidance. From GLA University to global success." />
+        <meta property="og:title" content="LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep" />
+        <meta property="og:description" content="Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, cover letter generation, and career guidance." />
         <meta property="og:site_name" content="LaunchTrack" />
         <meta property="og:url" content="https://launchtrack.vercel.app" />
         <meta property="og:image" content="https://launchtrack.vercel.app/android-chrome-512x512.png" />
@@ -187,15 +261,22 @@ export default function RootLayout({ children }) {
         <meta property="og:image:height" content="512" />
         <meta property="og:image:alt" content="LaunchTrack - AI Career Coach Logo" />
         <meta property="og:locale" content="en_US" />
+        <meta property="og:image:type" content="image/png" />
         
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@LaunchTrack" />
         <meta name="twitter:creator" content="@LaunchTrack" />
-        <meta name="twitter:title" content="LaunchTrack - AI Career Coach | GLA University" />
-        <meta name="twitter:description" content="Your AI-powered career coach for personalized job search, interview preparation, and career guidance." />
+        <meta name="twitter:title" content="LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep" />
+        <meta name="twitter:description" content="Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, and career guidance." />
         <meta name="twitter:image" content="https://launchtrack.vercel.app/android-chrome-512x512.png" />
         <meta name="twitter:image:alt" content="LaunchTrack - AI Career Coach Logo" />
+        
+        {/* Preconnect for Performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://clerk.accounts.dev" />
+        <link rel="dns-prefetch" href="https://clerk.accounts.dev" />
       </head>
       <body
         className={`${inter.className} `}
