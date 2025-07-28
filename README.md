@@ -4,7 +4,7 @@
   <img src="./public/android-chrome-512x512.png" alt="LaunchTrack Logo" width="128" height="128" />
 
   <h2><strong>LaunchTrack</strong></h2>
-  <p><em>An AI-powered career coaching platform built with Next.js, Clerk authentication, PostgreSQL (NEON), and Inngest.</em></p>
+  <p><em>An AI-powered career coaching platform built with Next.js, Clerk authentication, PostgreSQL (Neon), Prisma, and Inngest.</em></p>
 
   <!-- Tech Stack Badges -->
   <p>
@@ -23,19 +23,20 @@
     <a href="https://www.prisma.io/">
       <img src="https://img.shields.io/badge/Prisma-6.12.0-2D3748?style=for-the-badge&logo=prisma" alt="Prisma Badge" />
     </a>
-    <a href="https://www.postgresql.org/">
-      <img src="https://img.shields.io/badge/PostgreSQL-14%2B-336791?style=for-the-badge&logo=postgresql" alt="PostgreSQL Badge" />
+    <a href="https://neon.tech/">
+      <img src="https://img.shields.io/badge/Neon_DB-Serverless-008CFF?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmIiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9Im5vbmUiPjxwYXRoIGQ9Ik0wIDBoMTAyNHYxMDI0SDB6Ii8+PHBhdGggZD0iTTUyMiAxMDI0YzI4OC4yIDAgNTIyLTIzMy44IDUyMi01MjJTMTAxMC4yIDAgNTIyIDBTMCAyMzMuOCAwIDUxMnMyMzMuOCA1MTIgNTIyIDUxMiIgZmlsbD0iIzAwOGNmZiIvPjwvZz48L3N2Zz4=" alt="Neon DB Badge" />
+    </a>
+    <a href="https://www.inngest.com/">
+      <img src="https://img.shields.io/badge/Inngest-Event%20Driven%20Jobs-purple?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmIiB2aWV3Qm94PSIwIDAgMzAgMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIwLjUgMTAuNzE3VjIwYzAgLjU1Mi0uNDQ4IDEuMDAwLTEuMDAwIDEuMDAwcy0xLjAwMC0uNDQ4LTEuMDAwLTEuMDAwdi04LjYyOGwtNC4xNzkgMi4zODFjLS4xNTMuMDg3LS4zMjUuMTMxLS40OTkuMTMxLS41NTIgMC0xLS40NDgtMS0xIDAtLjM1LjE4Ni0uNjc3LjQ5OS0uODYxTDE4LjQ0OCA2bC01LjkyMi0zLjM0OEMxMi4wMjggMi40OTIgMTEuNTAwIDEuNDA4IDExLjUwMCAwYzAtLjU1Mi40NDgtMSAxLjAwMC0xcyAxLjAwMC40NDggMS4wMDAgMWMwIC40MTYgLjIyMS44MDggLjU3MyAxTDIzLjU1MiA2bC0zLjA1MiAxLjc1N3oiLz48L3N2Zz4=" alt="Inngest Badge" />
     </a>
   </p>
 
   <!-- Useful Links -->
   <p>
-    <a href="https://launchtrack.vercel.app"><strong>Live Demo</strong></a> • 
-    <a href="#documentation"><strong>Documentation</strong></a> • 
-    <a href="#contributing"><strong>Contributing</strong></a> • 
-    <a href="#support"><strong>Support</strong></a>
+    <a href="https://launchtrack.vercel.app"><strong>Live Demo</strong></a>
   </p>
 </div>
+
 
 
 ---
