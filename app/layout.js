@@ -73,6 +73,20 @@ export const metadata = {
   formatDetection: {
     telephone: false,
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { url: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
+  },
   openGraph: {
     type: "website",
     siteName: "LaunchTrack - AI Career Coach",
@@ -144,12 +158,13 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#070D0D" />
         <meta name="msapplication-tap-highlight" content="no" />
         
-        {/* Favicons and Icons */}
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#070D0D" />
+        {/* Enhanced Favicon Configuration */}
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png?v=2" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=2" />
         
         {/* SEO and Search Engine Tags */}
         <meta name="google-site-verification" content="your-google-verification-code" />
