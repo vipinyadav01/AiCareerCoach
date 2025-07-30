@@ -1,4 +1,3 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import HeaderWrapper from "@/components/header-wrapper";
@@ -8,11 +7,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from '@clerk/themes'
 import { Toaster } from "@/components/ui/sonner";
 
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 
 export const metadata = {
   metadataBase: new URL('https://launchtrack.vercel.app'),
@@ -290,11 +284,12 @@ export default function RootLayout({ children }) {
         {/* Preconnect for Performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <link rel="preconnect" href="https://clerk.accounts.dev" />
         <link rel="dns-prefetch" href="https://clerk.accounts.dev" />
       </head>
       <body
-        className={`${inter.className} `}
+        className="font-inter"
       >
         <ThemeProvider
             attribute="class"

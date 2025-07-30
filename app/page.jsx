@@ -2,7 +2,7 @@ import HeroSection from "@/components/hero";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FeatureSection } from "@/components/feature";
-import { Check, Users, Target, Trophy,ArrowRight } from "lucide-react";
+import { Check, Users, Target, Trophy, ArrowRight } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
 import { whyChooseUs } from "@/data/whyChooseUs";
 import { faqs } from "../data/faq";
@@ -13,7 +13,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
-// Icon mapping for why choose us section
 const iconMap = {
   Check,
   Users,
@@ -27,7 +26,7 @@ export default function Home() {
       <div className="grid-background"></div>
       <div className="relative z-10">
         <HeroSection />
-        
+
         <section className="w-full py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -52,25 +51,25 @@ export default function Home() {
                 Join thousands of professionals who have accelerated their careers with our AI-powered platform.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
               {whyChooseUs.map((item) => {
                 const IconComponent = iconMap[item.icon];
                 return (
-                  <div 
-                    key={item.id} 
+                  <div
+                    key={item.id}
                     className="group/feature flex flex-col items-center justify-center space-y-6 p-8 bg-transparent backdrop-blur-md rounded-lg border border-white hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-xl transition-all duration-300 hover:scale-105 relative"
                   >
                     <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-blue-50 dark:from-blue-900/20 to-transparent pointer-events-none rounded-lg" />
-                    
+
                     <div className="flex items-center justify-center w-16 h-16 rounded-lg bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 group-hover/feature:bg-blue-500 group-hover/feature:text-white transition-all duration-300 relative z-10 shadow-lg group-hover/feature:shadow-blue-500/25">
                       {IconComponent && <IconComponent className="w-8 h-8" />}
                     </div>
-                    
+
                     <h3 className="text-xl font-bold text-center text-gray-900 dark:text-white relative z-10">
                       {item.title}
                     </h3>
-                    
+
                     <p className="text-sm text-gray-700 dark:text-gray-200 text-center leading-relaxed relative z-10">
                       {item.description}
                     </p>
@@ -99,11 +98,11 @@ export default function Home() {
                   className="group/feature bg-transparent backdrop-blur-md border border-white p-6 hover:shadow-xl transition-all duration-300 rounded-lg relative"
                 >
                   <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-blue-50 dark:from-blue-900/20 to-transparent pointer-events-none rounded-lg" />
-                  
+
                   <div className="relative z-10">
                     <div className="flex items-center mb-4">
-                      <img 
-                        src={testimonial.image} 
+                      <img
+                        src={testimonial.image}
                         alt={testimonial.name}
                         className="w-12 h-12 object-cover border-2 border-white/50 rounded-lg"
                       />
@@ -134,7 +133,7 @@ export default function Home() {
               </h3>
               <p className="text-gray-700 dark:text-gray-200 max-w-3xl mx-auto text-lg">
                 Find answers to common questions about our platform
-              </p>            
+              </p>
             </div>
             <div className="max-w-6xl mx-auto bg-transparent backdrop-blur-md border border-white/50 rounded-lg p-6">
               <Accordion type="single" collapsible className="w-full">
@@ -149,28 +148,28 @@ export default function Home() {
           </div>
         </section>
         {/* CTA Section */}
-      <section className="w-full">
-        <div className="mx-auto py-24 bg-gradient-to-b from-gray-400 via-gray-200 to-gray-600 rounded-lg">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tighter text-primary-foreground sm:text-4xl md:text-5xl">
-              Ready to Accelerate Your Career?
-            </h2>
-            <p className="mx-auto max-w-[600px] text-primary-foreground/80 md:text-xl">
-              Join thousands of professionals who are advancing their careers
-              with AI-powered guidance.
-            </p>
-            <Link href="/dashboard" passHref>
-              <Button
-                size="lg"
-                variant="secondary"
-                className="h-11 mt-5 animate-bounce"
-              >
-                Start Your Journey Today <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
+        <section className="w-full">
+          <div className="mx-auto py-24 bg-gradient-to-b from-gray-400 via-gray-200 to-gray-600 rounded-lg">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold tracking-tighter text-primary-foreground sm:text-4xl md:text-5xl">
+                Ready to Accelerate Your Career?
+              </h2>
+              <p className="mx-auto max-w-[600px] text-primary-foreground/80 md:text-xl">
+                Join thousands of professionals who are advancing their careers
+                with AI-powered guidance.
+              </p>
+              <Link href="/dashboard" passHref>
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="h-11 mt-5 animate-bounce"
+                >
+                  Start Your Journey Today <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </div>
     </div>
   );

@@ -6,24 +6,28 @@ import { TextHoverEffect } from './ui/text-hover-effect'
 import { TypewriterEffect } from "./ui/typewriter-effect";
 
 const HeroSection = () => {
-    const words = [
-        {
-            text: "Your"
-        },
-        {
-            text: "Career"
-        },
-        {
-            text: "Our"
-        },
-        {
-            text: "AI",
-        },
-        {
-            text: "LaunchTrack.",
-            className: "text-slate-800 dark:text-slate-200"
-        },
-    ];
+   const words = [
+  {
+    text: "Accelerate",
+  },
+  {
+    text: "Your",
+  },
+  {
+    text: "Career",
+  },
+  {
+    text: "with",
+  },
+  {
+    text: "AI",
+  },
+  {
+    text: "Insights",
+    className: "text-neutral-800 dark:text-neutral-200",
+  },
+];
+
 
     return (
         <section className='relative w-full min-h-screen pt-20 md:pt-32 pb-16 overflow-hidden bg-transparent'>
@@ -39,10 +43,11 @@ const HeroSection = () => {
                     <div className='text-center space-y-10'>
 
                         <div className='space-y-8'>
-                            <div className="inline-flex items-center px-6 py-3 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-semibold mb-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <div className="inline-flex items-center px-6 py-3 rounded-full bg-background dark:bg-background/80 border border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 text-sm font-semibold mb-8 shadow-sm hover:shadow-md transition-shadow duration-300">
                                 <span className="mr-2 text-lg">🚀</span>
                                 AI-Powered Career Guidance
                             </div>
+
 
                             <div className="space-y-6">
                                 <h1 className="text-5xl sm:text-7xl md:text-9xl font-black leading-tight text-slate-900 dark:text-slate-100">
@@ -85,29 +90,44 @@ const HeroSection = () => {
 
                         <div className="pt-16">
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                                <div className="group flex flex-col items-center space-y-4 text-slate-700 dark:text-slate-300 bg-slate-50/80 dark:bg-slate-800/80 rounded-2xl p-6 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-                                    <div className="w-4 h-4 bg-emerald-500 rounded-full animate-pulse group-hover:scale-110 transition-transform duration-300"></div>
-                                    <div className="text-center">
-                                        <h3 className="font-bold text-slate-900 dark:text-slate-100 mb-2">AI-Powered Matching</h3>
-                                        <p className="text-sm text-slate-600 dark:text-slate-400">Smart algorithms connect you with perfect opportunities</p>
+                                {[
+                                    {
+                                        title: "AI-Powered Matching",
+                                        description: "Smart algorithms connect you with perfect opportunities",
+                                        dotColor: "bg-emerald-500",
+                                        delay: "",
+                                    },
+                                    {
+                                        title: "Personalized Guidance",
+                                        description: "Tailored advice based on your skills and goals",
+                                        dotColor: "bg-sky-500",
+                                        delay: "delay-200",
+                                    },
+                                    {
+                                        title: "Career Analytics",
+                                        description: "Data-driven insights to accelerate your growth",
+                                        dotColor: "bg-violet-500",
+                                        delay: "delay-500",
+                                    },
+                                ].map(({ title, description, dotColor, delay }, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="group flex flex-col items-center space-y-4 text-neutral-700 dark:text-neutral-300 bg-background dark:bg-background/80 rounded-2xl p-6 backdrop-blur-sm border border-neutral-200/50 dark:border-neutral-700/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-2"
+                                    >
+                                        <div
+                                            className={`w-4 h-4 ${dotColor} rounded-full animate-pulse ${delay} group-hover:scale-110 transition-transform duration-300`}
+                                        ></div>
+                                        <div className="text-center">
+                                            <h3 className="font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+                                                {title}
+                                            </h3>
+                                            <p className="text-sm text-neutral-600 dark:text-neutral-400">{description}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="group flex flex-col items-center space-y-4 text-slate-700 dark:text-slate-300 bg-slate-50/80 dark:bg-slate-800/80 rounded-2xl p-6 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-                                    <div className="w-4 h-4 bg-sky-500 rounded-full animate-pulse delay-200 group-hover:scale-110 transition-transform duration-300"></div>
-                                    <div className="text-center">
-                                        <h3 className="font-bold text-slate-900 dark:text-slate-100 mb-2">Personalized Guidance</h3>
-                                        <p className="text-sm text-slate-600 dark:text-slate-400">Tailored advice based on your skills and goals</p>
-                                    </div>
-                                </div>
-                                <div className="group flex flex-col items-center space-y-4 text-slate-700 dark:text-slate-300 bg-slate-50/80 dark:bg-slate-800/80 rounded-2xl p-6 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-                                    <div className="w-4 h-4 bg-violet-500 rounded-full animate-pulse delay-500 group-hover:scale-110 transition-transform duration-300"></div>
-                                    <div className="text-center">
-                                        <h3 className="font-bold text-slate-900 dark:text-slate-100 mb-2">Career Analytics</h3>
-                                        <p className="text-sm text-slate-600 dark:text-slate-400">Data-driven insights to accelerate your growth</p>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
+
 
 
                         <div className="pt-12">
