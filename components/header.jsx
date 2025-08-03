@@ -4,7 +4,7 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import React from 'react'
 import Link from 'next/link'
 import { Button } from './ui/button'
-import { FileText, GraduationCap, LayoutDashboard, PenBox, StarsIcon, Menu } from 'lucide-react'
+import { FileText, GraduationCap, LayoutDashboard, PenBox, StarsIcon, Menu, Sparkles } from 'lucide-react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
 import { ThemeToggle } from './theme-toggle'
 
@@ -116,17 +116,38 @@ const Header = () => {
               </DropdownMenu>
             </div>
           </SignedIn>
+          
           <SignedOut>
             <div className="flex items-center gap-3 sm:gap-4">
+              {/* Feature Preview for Non-Logged Users */}
+              <div className="hidden md:flex items-center gap-3">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-medium">
+                  <Sparkles className="h-3 w-3" />
+                  <span>AI-Powered</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-green-500/10 border border-green-500/20 text-green-500 text-xs font-medium">
+                  <GraduationCap className="h-3 w-3" />
+                  <span>Free</span>
+                </div>
+              </div>
+              
               <Link href="/sign-in">
-                <button className="text-muted-foreground hover:text-foreground transition-all duration-300 px-3 sm:px-4 py-2 rounded-xl hover:bg-accent text-sm sm:text-base font-medium backdrop-blur-sm font-inter">
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 px-3 sm:px-4 py-2 rounded-xl hover:bg-accent/50 text-sm sm:text-base font-medium backdrop-blur-sm font-inter border border-transparent hover:border-border/50"
+                >
                   Sign In
-                </button>
+                </Button>
               </Link>
               <Link href="/sign-up">
-                <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-primary/20 font-semibold text-sm sm:text-base font-inter">
+                <Button 
+                  size="sm"
+                  className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-primary/20 font-semibold text-sm sm:text-base font-inter group"
+                >
+                  <Sparkles className="h-3 w-3 mr-1.5 group-hover:scale-110 transition-transform" />
                   Get Started
-                </button>
+                </Button>
               </Link>
             </div>
           </SignedOut>
