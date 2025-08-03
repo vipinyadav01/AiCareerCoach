@@ -16,12 +16,13 @@ const Header = () => {
           <Link href="/" className="mr-3 flex items-center">
             <img src="/apple-touch-icon.png" alt="Launch Track Logo" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full shadow-lg" />
           </Link>
-          <Link href="/" className="text-xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary hover:scale-105 transition-all duration-300 hover:from-primary/80 hover:via-primary hover:to-primary/80 drop-shadow-sm font-inter">
+          {/* Show full logo on larger screens, only logo on mobile */}
+          <Link href="/" className="hidden sm:block text-xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary hover:scale-105 transition-all duration-300 hover:from-primary/80 hover:via-primary hover:to-primary/80 drop-shadow-sm font-inter">
             Launch Track
           </Link>
         </div>
 
-        <div className="flex items-center gap-3 sm:gap-6">
+        <div className="flex items-center gap-2 sm:gap-4 lg:gap-6">
           <SignedIn>
             <div className="hidden md:flex items-center gap-4">
               <Link href="/dashboard" className="flex items-center group">
@@ -61,19 +62,19 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-            <div className="md:hidden  ">
+            <div className="md:hidden">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
                     size="sm"
                     variant="ghost"
-                    className="h-10 w-10 p-0 rounded-full border border-border/50 bg-background/80 hover:bg-primary/10 hover:border-primary/30 text-foreground transition-all duration-300 backdrop-blur-md shadow-lg hover:shadow-primary/20"
+                    className="h-9 w-9 p-0 rounded-full border border-border/50 bg-background/80 hover:bg-primary/10 hover:border-primary/30 text-foreground transition-all duration-300 backdrop-blur-md shadow-lg hover:shadow-primary/20"
                   >
-                    <Menu className="h-5 w-5" />
+                    <Menu className="h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
-                  className="bg-background/95 border border-border/50 backdrop-blur-xl w-64 rounded-2xl shadow-2xl p-1 mr-4 mt-2"
+                  className="bg-background/95 border border-border/50 backdrop-blur-xl w-56 rounded-2xl shadow-2xl p-1 mr-2 mt-2"
                   align="end"
                   sideOffset={8}
                 >
@@ -81,35 +82,35 @@ const Header = () => {
                     <p className="text-sm font-semibold text-foreground/80 font-inter">Navigation</p>
                   </div>
                   <DropdownMenuItem asChild className="hover:bg-primary/10 focus:bg-primary/10 rounded-xl transition-all duration-200 m-1">
-                    <Link href="/dashboard" className="flex items-center py-3 px-4 font-inter group">
-                      <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
-                        <LayoutDashboard className="h-4 w-4 text-primary" />
+                    <Link href="/dashboard" className="flex items-center py-2.5 px-3 font-inter group">
+                      <div className="h-7 w-7 rounded-lg bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
+                        <LayoutDashboard className="h-3.5 w-3.5 text-primary" />
                       </div>
-                      <span className="text-foreground font-medium">Industry Insights</span>
+                      <span className="text-foreground font-medium text-sm">Industry Insights</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="hover:bg-primary/10 focus:bg-primary/10 rounded-xl transition-all duration-200 m-1">
-                    <Link href="/resume" className="flex items-center py-3 px-4 font-inter group">
-                      <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
-                        <FileText className="h-4 w-4 text-primary" />
+                    <Link href="/resume" className="flex items-center py-2.5 px-3 font-inter group">
+                      <div className="h-7 w-7 rounded-lg bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
+                        <FileText className="h-3.5 w-3.5 text-primary" />
                       </div>
-                      <span className="text-foreground font-medium">Build Resume</span>
+                      <span className="text-foreground font-medium text-sm">Build Resume</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="hover:bg-primary/10 focus:bg-primary/10 rounded-xl transition-all duration-200 m-1">
-                    <Link href="/ai-cover-letter" className="flex items-center py-3 px-4 font-inter group">
-                      <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
-                        <PenBox className="h-4 w-4 text-primary" />
+                    <Link href="/ai-cover-letter" className="flex items-center py-2.5 px-3 font-inter group">
+                      <div className="h-7 w-7 rounded-lg bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
+                        <PenBox className="h-3.5 w-3.5 text-primary" />
                       </div>
-                      <span className="text-foreground font-medium">Cover Letter</span>
+                      <span className="text-foreground font-medium text-sm">Cover Letter</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="hover:bg-primary/10 focus:bg-primary/10 rounded-xl transition-all duration-200 m-1">
-                    <Link href="/interview" className="flex items-center py-3 px-4 font-inter group">
-                      <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
-                        <GraduationCap className="h-4 w-4 text-primary" />
+                    <Link href="/interview" className="flex items-center py-2.5 px-3 font-inter group">
+                      <div className="h-7 w-7 rounded-lg bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
+                        <GraduationCap className="h-3.5 w-3.5 text-primary" />
                       </div>
-                      <span className="text-foreground font-medium">Interview Prep</span>
+                      <span className="text-foreground font-medium text-sm">Interview Prep</span>
                     </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -118,9 +119,9 @@ const Header = () => {
           </SignedIn>
           
           <SignedOut>
-            <div className="flex items-center gap-3 sm:gap-4">
-              {/* Feature Preview for Non-Logged Users */}
-              <div className="hidden md:flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-4">
+              {/* Feature Preview for Non-Logged Users - Hidden on mobile */}
+              <div className="hidden lg:flex items-center gap-3">
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-medium">
                   <Sparkles className="h-3 w-3" />
                   <span>AI-Powered</span>
@@ -131,24 +132,29 @@ const Header = () => {
                 </div>
               </div>
               
-              <Link href="/sign-in">
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  className="text-muted-foreground hover:text-foreground transition-all duration-300 px-3 sm:px-4 py-2 rounded-xl hover:bg-accent/50 text-sm sm:text-base font-medium backdrop-blur-sm font-inter border border-transparent hover:border-border/50"
-                >
-                  Sign In
-                </Button>
-              </Link>
-              <Link href="/sign-up">
-                <Button 
-                  size="sm"
-                  className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-primary/20 font-semibold text-sm sm:text-base font-inter group"
-                >
-                  <Sparkles className="h-3 w-3 mr-1.5 group-hover:scale-110 transition-transform" />
-                  Get Started
-                </Button>
-              </Link>
+              {/* Mobile-optimized buttons */}
+              <div className="flex items-center gap-1.5 sm:gap-3">
+                <Link href="/sign-in">
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    className="text-muted-foreground hover:text-foreground transition-all duration-300 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-accent/50 text-xs sm:text-sm font-medium backdrop-blur-sm font-inter border border-transparent hover:border-border/50 h-8 sm:h-9"
+                  >
+                    <span className="hidden sm:inline">Sign In</span>
+                    <span className="sm:hidden">Login</span>
+                  </Button>
+                </Link>
+                <Link href="/sign-up">
+                  <Button 
+                    size="sm"
+                    className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-primary-foreground px-3 sm:px-6 py-1.5 sm:py-2.5 rounded-lg transition-all duration-300 shadow-lg hover:shadow-primary/20 font-semibold text-xs sm:text-sm font-inter group h-8 sm:h-9"
+                  >
+                    <Sparkles className="h-3 w-3 mr-1 sm:mr-1.5 group-hover:scale-110 transition-transform" />
+                    <span className="hidden sm:inline">Get Started</span>
+                    <span className="sm:hidden">Start</span>
+                  </Button>
+                </Link>
+              </div>
             </div>
           </SignedOut>
           
@@ -158,7 +164,7 @@ const Header = () => {
             <UserButton
               appearance={{
                 elements: {
-                  avatarBox: "h-9 w-9 sm:h-11 sm:w-11 rounded-full border-2 border-border shadow-lg hover:border-primary/80 transition-all duration-300 backdrop-blur-sm",
+                  avatarBox: "h-8 w-8 sm:h-9 sm:w-9 lg:h-11 lg:w-11 rounded-full border-2 border-border shadow-lg hover:border-primary/80 transition-all duration-300 backdrop-blur-sm",
                   userButtonPopoverCard: "bg-popover backdrop-blur-xl border border-border shadow-2xl rounded-xl",
                   userButtonPopoverActionButton: "text-muted-foreground hover:bg-accent hover:text-foreground p-3 rounded-lg transition-all duration-200 font-inter",
                   userPreviewMainIdentifier: "font-bold text-foreground text-lg font-inter",
