@@ -67,15 +67,23 @@ const SEOOptimizer = ({
                   "name": "What is LaunchTrack?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "LaunchTrack is an AI-powered career coaching platform that helps professionals with job search, interview preparation, cover letter generation, and career guidance."
+                    "text": "LaunchTrack is an AI-powered career coaching platform that generates role-based interview questions, provides analytics on the latest job trends, programming languages, and tech skills, and helps you create professional cover letters and resumes. It offers comprehensive tools for interview preparation, career guidance, and job search optimization."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "How does LaunchTrack help with job search?",
+                  "name": "How does LaunchTrack help with job search and interview preparation?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "LaunchTrack provides personalized job search assistance, resume optimization, interview practice, and industry insights to help you find your dream job."
+                    "text": "LaunchTrack offers personalized job search assistance, generates interview questions tailored to specific roles, and provides analytics on trending skills and technologies. You can also build your resume and cover letter directly on the platform, making your job application process seamless and effective."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can I create a cover letter and resume with LaunchTrack?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, LaunchTrack allows you to easily generate professional cover letters and resumes using AI-powered templates and suggestions, helping you stand out in your job applications."
                   }
                 },
                 {
@@ -83,7 +91,7 @@ const SEOOptimizer = ({
                   "name": "Is LaunchTrack free to use?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, LaunchTrack offers free access to its core features including AI career coaching, interview preparation, and resume building tools."
+                    "text": "Yes, LaunchTrack offers free access to its core features, including AI career coaching, role-based interview question generation, analytics on job trends, and resume and cover letter building tools."
                   }
                 }
               ]
