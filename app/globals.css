@@ -120,6 +120,25 @@
   body {
     @apply bg-background text-foreground;
     position: relative;
+    /* iOS Safari improvements */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent iOS Safari zoom on input focus */
+    font-size: 16px;
+  }
+  
+  /* iOS Safari viewport fixes */
+  html {
+    /* Prevent iOS Safari from scaling */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    /* Smooth scrolling for iOS */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* iOS Safari input improvements */
+  input, textarea, select {
+    font-size: 16px !important;
   }
 }
 

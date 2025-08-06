@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Loader2, Sparkles } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 const SplashScreen = ({ onComplete }) => {
   const [loading, setLoading] = useState(true);
@@ -45,10 +45,25 @@ const SplashScreen = ({ onComplete }) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-background"
+          style={{
+           
+            height: '100vh',
+            height: '100dvh', 
+            width: '100vw',
+            width: '100dvw', 
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            // Prevent iOS Safari zoom and bounce
+            touchAction: 'none',
+            WebkitOverflowScrolling: 'touch',
+          }}
         >
           {/* Grid Background */}
           <div className="absolute inset-0 grid-background"></div>
-          <div className="relative flex flex-col items-center justify-center space-y-8">
+          <div className="relative flex flex-col items-center justify-center space-y-8 px-4">
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -56,7 +71,19 @@ const SplashScreen = ({ onComplete }) => {
               className="relative"
             >
               <div className="relative w-24 h-24 bg-transparent backdrop-blur-md rounded-2xl flex items-center justify-center border border-gray-300 dark:border-white/20">
-                <Sparkles className="w-12 h-12 text-gray-700 dark:text-white" />
+                <img 
+                  src="/android-chrome-512x512.png" 
+                  alt="LaunchTrack Logo" 
+                  className="w-16 h-16 object-contain"
+                  style={{
+                    // iOS image rendering improvements
+                    imageRendering: 'crisp-edges',
+                    WebkitImageRendering: 'crisp-edges',
+                    // Prevent iOS Safari from scaling images
+                    maxWidth: '100%',
+                    maxHeight: '100%',
+                  }}
+                />
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}

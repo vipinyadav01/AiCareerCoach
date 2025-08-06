@@ -64,6 +64,20 @@ export const metadata = {
     capable: true,
     statusBarStyle: "default",
     title: "LaunchTrack",
+    startupImage: [
+      {
+        url: "/apple-touch-icon.png",
+        media: "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+      },
+      {
+        url: "/apple-touch-icon.png", 
+        media: "(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+      },
+      {
+        url: "/apple-touch-icon.png",
+        media: "(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)"
+      }
+    ]
   },
   formatDetection: {
     telephone: false,
