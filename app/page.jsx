@@ -58,7 +58,7 @@ export default function Home() {
                 return (
                   <div
                     key={item.id}
-                    className="group/feature flex flex-col items-center justify-center space-y-6 p-8 bg-transparent backdrop-blur-md rounded-lg border border-white hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-xl transition-all duration-300 hover:scale-105 relative"
+                    className="group/feature flex flex-col items-center justify-center space-y-6 p-8 bg-transparent backdrop-blur-md rounded-lg border border-gray-300 dark:border-white hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-xl transition-all duration-300 hover:scale-105 relative"
                   >
                     <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-blue-50 dark:from-blue-900/20 to-transparent pointer-events-none rounded-lg" />
 
@@ -95,7 +95,7 @@ export default function Home() {
               {testimonials.map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="group/feature bg-transparent backdrop-blur-md border border-white p-6 hover:shadow-xl transition-all duration-300 rounded-lg relative"
+                  className="group/feature bg-transparent backdrop-blur-md border border-gray-300 dark:border-white p-6 hover:shadow-xl transition-all duration-300 rounded-lg relative"
                 >
                   <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-blue-50 dark:from-blue-900/20 to-transparent pointer-events-none rounded-lg" />
 
@@ -104,7 +104,7 @@ export default function Home() {
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
-                        className="w-12 h-12 object-cover border-2 border-white/50 rounded-lg"
+                        className="w-12 h-12 object-cover border-2 border-gray-300 dark:border-white/50 rounded-lg"
                       />
                       <div className="ml-4">
                         <h4 className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</h4>
@@ -135,7 +135,7 @@ export default function Home() {
                 Find answers to common questions about our platform
               </p>
             </div>
-            <div className="max-w-6xl mx-auto bg-transparent backdrop-blur-md border border-white/50 rounded-lg p-6">
+            <div className="max-w-6xl mx-auto bg-transparent backdrop-blur-md border border-gray-300 dark:border-white/50 rounded-lg p-6">
               <Accordion type="single" collapsible className="w-full">
                 {faqs.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200 dark:border-gray-700">
@@ -149,12 +149,12 @@ export default function Home() {
         </section>
         {/* CTA Section */}
         <section className="w-full">
-          <div className="mx-auto py-24 bg-gradient-to-b from-gray-400 via-gray-200 to-gray-600 rounded-lg">
+          <div className="mx-auto py-24 bg-gradient-to-b from-gray-100 via-gray-50 to-gray-200 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600 rounded-lg">
             <div className="flex flex-col items-center justify-center space-y-4 text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold tracking-tighter text-primary-foreground sm:text-4xl md:text-5xl">
+              <h2 className="text-3xl font-bold tracking-tighter text-gray-900 dark:text-white sm:text-4xl md:text-5xl">
                 Ready to Accelerate Your Career?
               </h2>
-              <p className="mx-auto max-w-[600px] text-primary-foreground/80 md:text-xl">
+              <p className="mx-auto max-w-[600px] text-gray-700 dark:text-gray-200 md:text-xl">
                 Join thousands of professionals who are advancing their careers
                 with AI-powered guidance.
               </p>
