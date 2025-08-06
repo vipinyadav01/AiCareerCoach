@@ -9,8 +9,14 @@ const SplashScreen = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    const minSplashTime = 2000; 
+    const startTime = Date.now();
+    
     const interval = setInterval(() => {
       setProgress((prev) => {
+        const elapsed = Date.now() - startTime;
+        const minProgress = Math.min((elapsed / minSplashTime) * 100, 90);
+        
         if (prev >= 100) {
           clearInterval(interval);
           setTimeout(() => {
@@ -21,9 +27,12 @@ const SplashScreen = ({ onComplete }) => {
           }, 200);
           return 100;
         }
-        return prev + Math.random() * 15;
+        
+        // Combine minimum progress with random increments
+        const newProgress = Math.max(prev + Math.random() * 10, minProgress);
+        return Math.min(newProgress, 100);
       });
-    }, 100);
+    }, 150);
 
     return () => clearInterval(interval);
   }, [onComplete]);

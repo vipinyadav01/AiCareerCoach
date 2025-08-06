@@ -15,11 +15,11 @@ export const useSplash = () => {
 
 export const SplashProvider = ({ children }) => {
   const [showSplash, setShowSplash] = useState(true);
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Only run on client side
-    if (typeof window === "undefined") return;
+    // Mark as client-side
+    setIsClient(true);
     
     // Check if this is the first visit
     const hasVisited = localStorage.getItem("hasVisited");
@@ -32,25 +32,16 @@ export const SplashProvider = ({ children }) => {
       // Returning visitor - skip splash screen
       setShowSplash(false);
     }
-
-    // Set initial load to false after a short delay
-    const timer = setTimeout(() => {
-      setIsInitialLoad(false);
-    }, 100);
-
-    return () => clearTimeout(timer);
   }, []);
 
   const handleSplashComplete = () => {
     setShowSplash(false);
   };
 
-  useEffect(() => {
-    if (!isInitialLoad && !showSplash) {
-
-      setShowSplash(false);
-    }
-  }, [isInitialLoad, showSplash]);
+  // Don't render anything until client-side
+  if (!isClient) {
+    return <>{children}</>;
+  }
 
   return (
     <SplashContext.Provider value={{ showSplash, setShowSplash }}>
