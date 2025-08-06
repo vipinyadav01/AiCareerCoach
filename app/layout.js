@@ -308,10 +308,10 @@ export default function RootLayout({ children }) {
               <PWAStatus />
               <Toaster richColors />
               {/* Footer */}
-              <footer className="bg-muted/50  text-white py-12 text-center">
-                <div className="container mx-auto px-4 text-center text-gray-300">
+              <footer className="bg-muted/50 text-foreground py-12 text-center">
+                <div className="container mx-auto px-4 text-center text-muted-foreground">
                   <p className="text-sm">
-                    © {new Date().getFullYear()} Ai Career Coach. All rights reserved.
+                    © {new Date().getFullYear()} LaunchTrack. All rights reserved.
                   </p>
                 </div>
               </footer>
