@@ -6,6 +6,7 @@ import PWAStatus from "@/components/pwa-status";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from '@clerk/themes'
 import { Toaster } from "@/components/ui/sonner";
+import { SplashProvider } from "@/components/splash-provider";
 
 
 export const metadata = {
@@ -291,29 +292,31 @@ export default function RootLayout({ children }) {
       <body
         className="font-inter"
       >
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {/* Header */}
-            <HeaderWrapper/>
-            <main className="min-h-screen">
+        <SplashProvider>
+          <ThemeProvider
+              attribute="class"
+              defaultTheme="dark"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {/* Header */}
+              <HeaderWrapper/>
+              <main className="min-h-screen">
 {children}
-            </main>
-            <PWAInstallPrompt />
-            <PWAStatus />
-            <Toaster richColors/>
-            {/* Footer */}
-            <footer className="bg-muted/50  text-white py-12 text-center">
-              <div className="container mx-auto px-4 text-center text-gray-300">
-                <p className="text-sm">
-                  © {new Date().getFullYear()} Ai Career Coach. All rights reserved.
-                </p>
-              </div>
-            </footer>
-          </ThemeProvider>
+              </main>
+              <PWAInstallPrompt />
+              <PWAStatus />
+              <Toaster richColors/>
+              {/* Footer */}
+              <footer className="bg-muted/50  text-white py-12 text-center">
+                <div className="container mx-auto px-4 text-center text-gray-300">
+                  <p className="text-sm">
+                    © {new Date().getFullYear()} Ai Career Coach. All rights reserved.
+                  </p>
+                </div>
+              </footer>
+            </ThemeProvider>
+        </SplashProvider>
       </body>
     </html>
     </ClerkProvider>
