@@ -7,6 +7,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from '@clerk/themes'
 import { Toaster } from "@/components/ui/sonner";
 import { SplashProvider } from "@/components/splash-provider";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 
 export const metadata = {
@@ -306,6 +307,7 @@ export default function RootLayout({ children }) {
         <body
           className="font-inter"
         >
+          <BackgroundBeams className="fixed inset-0 -z-10" />
           <SplashProvider>
             <ThemeProvider
               attribute="class"

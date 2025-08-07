@@ -62,7 +62,7 @@ const SplashScreen = ({ onComplete }) => {
           }}
         >
           {/* Grid Background */}
-          <div className="absolute inset-0 grid-background"></div>
+          <div className="absolute inset-0 "></div>
           <div className="relative flex flex-col items-center justify-center space-y-8 px-4">
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
