@@ -159,7 +159,6 @@ const Header = () => {
           </SignedOut>
           
           <ThemeToggle />
-          
           <SignedIn>
             <UserButton
               appearance={{
