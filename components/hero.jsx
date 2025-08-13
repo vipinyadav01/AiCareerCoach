@@ -165,19 +165,19 @@ const HeroSection = () => {
                                 </>
                             }
                         >
-                            <div className="relative group">
+                            <div className="relative group w-full mx-auto rounded-2xl md:rounded-3xl overflow-hidden aspect-[2/1]">
                                 <img
                                     src={`/banner.png`}
                                     alt="AI Career Coach Dashboard Preview"
                                     height={720}
                                     width={1400}
-                                    className="mx-auto rounded-3xl object-cover h-full object-left-top shadow-2xl border-2 border-slate-200 dark:border-slate-700 group-hover:shadow-3xl transition-shadow duration-500"
+                                    className="absolute inset-0 h-full w-full object-cover object-left-top shadow-2xl border border-slate-200/60 dark:border-slate-700/60 group-hover:shadow-3xl transition-shadow duration-500"
                                     draggable={false}
                                 />
 
-                                <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-slate-900/20 via-transparent to-slate-100/10 dark:from-slate-900/40 dark:to-slate-800/20 pointer-events-none" />
-                                <div className="absolute top-4 right-4 w-3 h-3 bg-slate-400 dark:bg-slate-500 rounded-full opacity-60"></div>
-                                <div className="absolute bottom-4 left-4 w-2 h-2 bg-slate-500 dark:bg-slate-400 rounded-full opacity-40"></div>
+                                <div className="pointer-events-none absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-t from-slate-900/20 via-transparent to-slate-100/10 dark:from-slate-900/40 dark:to-slate-800/20" />
+                                <div className="pointer-events-none absolute top-3 md:top-4 right-3 md:right-4 w-2.5 md:w-3 h-2.5 md:h-3 bg-slate-400 dark:bg-slate-500 rounded-full opacity-60"></div>
+                                <div className="pointer-events-none absolute bottom-3 md:bottom-4 left-3 md:left-4 w-2 h-2 bg-slate-500 dark:bg-slate-400 rounded-full opacity-40"></div>
                             </div>
                         </ContainerScroll>
                     </div>
