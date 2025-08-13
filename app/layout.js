@@ -6,6 +6,7 @@ import PWAStatus from "@/components/pwa-status";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from '@clerk/themes'
 import { Toaster } from "@/components/ui/sonner";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 
 export const metadata = {
@@ -297,6 +298,8 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
+            {/* Global animated background */}
+            <BackgroundBeams className="fixed inset-0 -z-10 pointer-events-none" />
             {/* Header */}
             <HeaderWrapper/>
             <main className="min-h-screen">
