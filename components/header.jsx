@@ -12,6 +12,7 @@ const Header = () => {
   return (
     <header className="fixed top-2 sm:top-4 lg:top-6 left-0 right-0 px-2 sm:px-4 lg:px-6 z-50">
       <div className="mx-auto max-w-7xl flex items-center justify-between border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60 supports-[backdrop-filter]:backdrop-blur-sm rounded-2xl shadow-2xl shadow-black/40 py-3 sm:py-4 px-4 sm:px-8 transition-all duration-300 hover:shadow-primary/10 hover:border-primary/30">
+        {/* Brand */}
         <div className="flex items-center">
           <Link href="/" className="mr-3 flex items-center">
             <img src="/apple-touch-icon.png" alt="Launch Track Logo" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full shadow-lg" />
@@ -21,46 +22,60 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className="flex items-center gap-3 sm:gap-6">
+        {/* Right side actions + Nav */}
+        <div className="flex items-center gap-3 sm:gap-6 flex-1 justify-end">
           <SignedIn>
-            <div className="hidden md:flex items-center gap-4">
-              <Link href="/dashboard" className="flex items-center group">
-                <Button variant="outline" size="sm" className="border-border bg-background/70 hover:bg-accent text-foreground hover:text-foreground transition-all duration-300 shadow-lg backdrop-blur-sm font-inter">
-                  <LayoutDashboard className="mr-1 sm:mr-2 h-4 w-4 group-hover:text-primary transition-colors" />
-                  <span className="hidden lg:inline">Industry Insights</span>
-                  <span className="lg:hidden">Insights</span>
-                </Button>
-              </Link>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-primary/20 transition-all duration-300 border-0 font-semibold font-inter">
-                    <StarsIcon className="mr-1 sm:mr-2 h-4 w-4" />
-                    <span className="hidden lg:inline">Growth Tools</span>
-                    <span className="lg:hidden">Tools</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-popover border-border backdrop-blur-xl rounded-xl shadow-2xl p-2 min-w-[200px]">
-                  <DropdownMenuItem asChild className="hover:bg-accent focus:bg-accent rounded-lg transition-colors duration-200 mb-1">
-                    <Link href="/resume" className="flex items-center py-3 px-4 font-inter">
-                      <FileText className="h-4 w-4 text-primary" />
-                      <span className="ml-3 text-foreground font-medium">Build Resume</span>
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild className="hover:bg-accent focus:bg-accent rounded-lg transition-colors duration-200 mb-1">
-                    <Link href="/ai-cover-letter" className="flex items-center py-3 px-4 font-inter">
-                      <PenBox className="h-4 w-4 text-primary" />
-                      <span className="ml-3 text-foreground font-medium">Cover Letter</span>
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild className="hover:bg-accent focus:bg-accent rounded-lg transition-colors duration-200">
-                    <Link href="/interview" className="flex items-center py-3 px-4 font-inter">
-                      <GraduationCap className="h-4 w-4 text-primary" />
-                      <span className="ml-3 text-foreground font-medium">Interview Prep</span>
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
+            {/* Desktop resizable navbar */}
+            <nav className="hidden md:flex flex-1 items-center justify-center">
+              <div className="flex items-center gap-1 rounded-full border border-border bg-background/70 backdrop-blur-xl px-2 py-1 shadow-lg">
+                <Link href="/dashboard" className="group flex items-center gap-2 rounded-full px-3 py-2 transition-all duration-300 basis-12 hover:basis-40 hover:bg-accent/60 hover:border-border border border-transparent">
+                  <LayoutDashboard className="h-4 w-4 text-foreground group-hover:text-primary" />
+                  <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 group-hover:max-w-[8rem] transition-all duration-300">Insights</span>
+                </Link>
+                <Link href="/resume" className="group flex items-center gap-2 rounded-full px-3 py-2 transition-all duration-300 basis-12 hover:basis-44 hover:bg-accent/60 hover:border-border border border-transparent">
+                  <FileText className="h-4 w-4 text-foreground group-hover:text-primary" />
+                  <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 group-hover:max-w-[10rem] transition-all duration-300">Build Resume</span>
+                </Link>
+                <Link href="/ai-cover-letter" className="group flex items-center gap-2 rounded-full px-3 py-2 transition-all duration-300 basis-12 hover:basis-44 hover:bg-accent/60 hover:border-border border border-transparent">
+                  <PenBox className="h-4 w-4 text-foreground group-hover:text-primary" />
+                  <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 group-hover:max-w-[10rem] transition-all duration-300">Cover Letter</span>
+                </Link>
+                <Link href="/interview" className="group flex items-center gap-2 rounded-full px-3 py-2 transition-all duration-300 basis-12 hover:basis-44 hover:bg-accent/60 hover:border-border border border-transparent">
+                  <GraduationCap className="h-4 w-4 text-foreground group-hover:text-primary" />
+                  <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 group-hover:max-w-[10rem] transition-all duration-300">Interview</span>
+                </Link>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button className="group flex items-center gap-2 rounded-full px-3 py-2 transition-all duration-300 basis-12 hover:basis-36 hover:bg-accent/60 hover:border-border border border-transparent">
+                      <StarsIcon className="h-4 w-4 text-foreground group-hover:text-primary" />
+                      <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 group-hover:max-w-[7rem] transition-all duration-300">Tools</span>
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-popover border-border backdrop-blur-xl rounded-xl shadow-2xl p-2 min-w-[200px]">
+                    <DropdownMenuItem asChild className="hover:bg-accent focus:bg-accent rounded-lg transition-colors duration-200 mb-1">
+                      <Link href="/resume" className="flex items-center py-3 px-4 font-inter">
+                        <FileText className="h-4 w-4 text-primary" />
+                        <span className="ml-3 text-foreground font-medium">Build Resume</span>
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild className="hover:bg-accent focus:bg-accent rounded-lg transition-colors duration-200 mb-1">
+                      <Link href="/ai-cover-letter" className="flex items-center py-3 px-4 font-inter">
+                        <PenBox className="h-4 w-4 text-primary" />
+                        <span className="ml-3 text-foreground font-medium">Cover Letter</span>
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild className="hover:bg-accent focus:bg-accent rounded-lg transition-colors duration-200">
+                      <Link href="/interview" className="flex items-center py-3 px-4 font-inter">
+                        <GraduationCap className="h-4 w-4 text-primary" />
+                        <span className="ml-3 text-foreground font-medium">Interview Prep</span>
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+            </nav>
+
+            {/* Mobile menu */}
             <div className="md:hidden  ">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -116,6 +131,8 @@ const Header = () => {
               </DropdownMenu>
             </div>
           </SignedIn>
+
+          {/* Auth actions */}
           <SignedOut>
             <div className="flex items-center gap-3 sm:gap-4">
               <Link href="/sign-in">
@@ -131,6 +148,7 @@ const Header = () => {
             </div>
           </SignedOut>
           
+          {/* Theme & User */}
           <ThemeToggle />
           
           <SignedIn>
