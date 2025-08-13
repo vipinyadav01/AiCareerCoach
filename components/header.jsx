@@ -128,19 +128,20 @@ const Header = () => {
       </SignedIn>
 
       <SignedOut>
-        <Link href="/sign-up" className="h-full sm:w-[8vw] w-[20vw] dark:bg-transparent backdrop-blur-lg rounded-lg flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl dark:shadow-black/50 dark:hover:shadow-black/70 relative overflow-hidden group">
+        <div className="h-full sm:w-[8vw] w-[20vw] dark:bg-transparent backdrop-blur-lg rounded-lg flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl dark:shadow-black/50 dark:hover:shadow-black/70 relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-200/20 via-gray-200/20 to-gray-400/20 dark:from-gray-600/30 dark:via-gray-500/30 dark:to-gray-800/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <div className="w-8 h-8 flex items-center justify-center group relative z-10">
+          <Link href="/sign-up" className="w-8 h-8 flex items-center justify-center group relative z-10">
             <svg viewBox="0 0 24 24" className="w-6 h-6 text-black dark:text-white transition-colors drop-shadow-lg" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
               <circle cx="9" cy="7" r="4" />
               <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
-          </div>
+          </Link>
           <span className="relative z-10 mt-1 text-xs font-bold text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors">
             Join
           </span>
-        </Link>
+          <GitHubStars className="relative z-10 mt-1 text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors" />
+        </div>
       </SignedOut>
 
 
