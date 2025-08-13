@@ -32,7 +32,6 @@ export function GitHubStars({ className = "", showIcon = true, repoUrl = "vipiny
           setError(true)
         }
       } catch (error) {
-        console.error('Failed to fetch GitHub stars:', error)
         setStarsCount(3) // Fallback to actual star count
         setError(true)
       } finally {
@@ -46,8 +45,8 @@ export function GitHubStars({ className = "", showIcon = true, repoUrl = "vipiny
   if (loading) {
     return (
       <div className={`flex items-center gap-1 ${className}`}>
-        {showIcon && <Star className="w-3 h-3 text-yellow-500 animate-pulse" />}
-        <span className="text-xs font-medium text-gray-500 dark:text-gray-400">...</span>
+        {showIcon && <Star className="w-4 h-4 text-yellow-500 animate-pulse" />}
+        <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">...</span>
       </div>
     )
   }
@@ -56,11 +55,11 @@ export function GitHubStars({ className = "", showIcon = true, repoUrl = "vipiny
     <div className={`flex items-center gap-1 ${className}`}>
       {showIcon && (
         <Star 
-          className={`w-3 h-3 ${error ? 'text-gray-400 dark:text-gray-500' : 'text-yellow-500'}`} 
+          className={`w-4 h-4 ${error ? 'text-gray-400 dark:text-gray-500' : 'text-yellow-500 fill-current'}`} 
         />
       )}
-      <span className={`text-xs font-medium ${error ? 'text-gray-500 dark:text-gray-400' : ''}`}>
-        {starsCount?.toLocaleString() || '66'}
+      <span className={`text-xs font-semibold ${error ? 'text-gray-500 dark:text-gray-400' : 'text-gray-700 dark:text-gray-300'}`}>
+        {starsCount?.toLocaleString() || '3'}
       </span>
     </div>
   )

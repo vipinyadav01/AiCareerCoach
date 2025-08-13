@@ -14,14 +14,21 @@ const Header = () => {
     <div className="fixed top-1.5 left-0 w-screen h-16 bg-transparent z-50 flex gap-2 items-center justify-center">
 
 
-      <div className="h-full sm:w-[8vw] w-[20vw] dark:bg-transparent backdrop-blur-lg rounded-lg flex items-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl dark:shadow-black/50 dark:hover:shadow-black/70 relative overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-200/20 via-gray-200/20 to-gray-400/20 dark:from-gray-600/30 dark:via-gray-500/30 dark:to-gray-800/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        <Link href="/" className="flex items-center gap-2 scale-[0.75] relative z-10">
-          <div className="h-8 w-8 bg-transparent rounded-lg flex items-center justify-center shadow-lg">
-            <img src="/favicon-32x32.png" alt="Launch Track Logo" className="h-8 w-8" />
+      <div className="h-full w-auto px-3 sm:px-4 flex items-center justify-center relative group transition-transform duration-200 hover:scale-105">
+        <Link href="/" className="flex items-center gap-2 relative z-10">
+          <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-white/80 dark:bg-gray-900/80 shadow-md border border-gray-200 dark:border-gray-800 transition-all">
+            <img
+              src="/favicon-32x32.png"
+              alt="Launch Track Logo"
+              className="h-7 w-7 object-contain"
+              style={{ minWidth: 28, minHeight: 28 }}
+            />
           </div>
-          <span className="text-gray-700 dark:text-gray-300 text-xs max-lg:hidden font-semibold">Launch Track</span>
+          <span className="ml-2 text-gray-800 dark:text-gray-100 text-base font-bold tracking-tight max-md:hidden">
+            Launch Track
+          </span>
         </Link>
+        <div className="pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-br from-gray-100/40 via-white/10 to-gray-300/20 dark:from-gray-700/30 dark:via-gray-800/20 dark:to-gray-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
 
@@ -53,7 +60,7 @@ const Header = () => {
               <div className="p-1.5 rounded-md bg-purple-100 dark:bg-purple-900/50 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/60 transition-colors">
                 <FileText className="w-4 h-4 text-purple-600 dark:text-purple-400 transition-colors" />
               </div>
-              <span className="lg:text-sm text-xs max-sm:hidden font-bold text-gray-700 dark:text-gray-300 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
+              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
                 Resume
               </span>
             </Link>
@@ -98,7 +105,7 @@ const Header = () => {
                   <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M21 12H9" />
                 </svg>
               </div>
-              <span className="lg:text-sm text-xs max-sm:hidden font-bold text-gray-700 dark:text-gray-300 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
+              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
                 Sign In
               </span>
             </Link>
@@ -110,7 +117,7 @@ const Header = () => {
 
 
       <SignedIn>
-        <div className="h-full sm:w-[8vw] w-[20vw] dark:bg-transparent backdrop-blur-lg rounded-lg flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl dark:shadow-black/50 dark:hover:shadow-black/70 relative overflow-hidden group">
+        <div className="h-full sm:w-[8vw] w-[20vw] dark:bg-transparent backdrop-blur-lg rounded-lg flex flex-row items-center justify-center gap-2 px-2 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl dark:shadow-black/50 dark:hover:shadow-black/70 relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-200/20 via-gray-200/20 to-gray-400/20 dark:from-gray-600/30 dark:via-gray-500/30 dark:to-gray-800/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <UserButton
             appearance={{
@@ -123,24 +130,14 @@ const Header = () => {
               }
             }}
           />
-          <GitHubStars className="relative z-10 mt-1 text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors" />
+          <GitHubStars className="relative z-10 text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors" />
         </div>
       </SignedIn>
 
       <SignedOut>
-        <div className="h-full sm:w-[8vw] w-[20vw] dark:bg-transparent backdrop-blur-lg rounded-lg flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl dark:shadow-black/50 dark:hover:shadow-black/70 relative overflow-hidden group">
+        <div className="h-full sm:w-[8vw] w-[20vw] dark:bg-transparent backdrop-blur-lg rounded-lg flex flex-row items-center justify-center gap-2 px-2 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl dark:shadow-black/50 dark:hover:shadow-black/70 relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-200/20 via-gray-200/20 to-gray-400/20 dark:from-gray-600/30 dark:via-gray-500/30 dark:to-gray-800/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <Link href="/sign-up" className="w-8 h-8 flex items-center justify-center group relative z-10">
-            <svg viewBox="0 0 24 24" className="w-6 h-6 text-black dark:text-white transition-colors drop-shadow-lg" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-            </svg>
-          </Link>
-          <span className="relative z-10 mt-1 text-xs font-bold text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors">
-            Join
-          </span>
-          <GitHubStars className="relative z-10 mt-1 text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors" />
+          <GitHubStars className="relative z-10  text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors" />
         </div>
       </SignedOut>
 
