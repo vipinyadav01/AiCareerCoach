@@ -1,172 +1,203 @@
 "use client"
 
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from './ui/button'
-import { FileText, GraduationCap, LayoutDashboard, PenBox, StarsIcon, Menu } from 'lucide-react'
+import { FileText, GraduationCap, LayoutDashboard, PenBox, Menu, Sun, Moon, Home, Star } from 'lucide-react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
 import { ThemeToggle } from './theme-toggle'
 
-const Header = () => {
-  return (
-    <header className="fixed top-2 sm:top-4 lg:top-6 left-0 right-0 px-2 sm:px-4 lg:px-6 z-50">
-      <div className="mx-auto max-w-7xl flex items-center justify-between border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60 supports-[backdrop-filter]:backdrop-blur-sm rounded-2xl shadow-2xl shadow-black/40 py-3 sm:py-4 px-4 sm:px-8 transition-all duration-300 hover:shadow-primary/10 hover:border-primary/30">
-        {/* Brand */}
-        <div className="flex items-center">
-          <Link href="/" className="mr-3 flex items-center">
-            <img src="/apple-touch-icon.png" alt="Launch Track Logo" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full shadow-lg" />
-          </Link>
-          <Link href="/" className="text-xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary hover:scale-105 transition-all duration-300 hover:from-primary/80 hover:via-primary hover:to-primary/80 drop-shadow-sm font-inter">
-            Launch Track
-          </Link>
-        </div>
 
-        {/* Right side actions + Nav */}
-        <div className="flex items-center gap-3 sm:gap-6 flex-1 justify-end">
-          <SignedIn>
-            {/* Desktop resizable navbar */}
-            <nav className="hidden md:flex flex-1 items-center justify-center">
-              <div className="flex items-center gap-1 rounded-full border border-border bg-background/70 backdrop-blur-xl px-2 py-1 shadow-lg">
-                <Link href="/dashboard" className="group flex items-center gap-2 rounded-full px-3 py-2 transition-all duration-300 basis-12 hover:basis-40 hover:bg-accent/60 hover:border-border border border-transparent">
-                  <LayoutDashboard className="h-4 w-4 text-foreground group-hover:text-primary" />
-                  <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 group-hover:max-w-[8rem] transition-all duration-300">Insights</span>
-                </Link>
-                <Link href="/resume" className="group flex items-center gap-2 rounded-full px-3 py-2 transition-all duration-300 basis-12 hover:basis-44 hover:bg-accent/60 hover:border-border border border-transparent">
-                  <FileText className="h-4 w-4 text-foreground group-hover:text-primary" />
-                  <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 group-hover:max-w-[10rem] transition-all duration-300">Build Resume</span>
-                </Link>
-                <Link href="/ai-cover-letter" className="group flex items-center gap-2 rounded-full px-3 py-2 transition-all duration-300 basis-12 hover:basis-44 hover:bg-accent/60 hover:border-border border border-transparent">
-                  <PenBox className="h-4 w-4 text-foreground group-hover:text-primary" />
-                  <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 group-hover:max-w-[10rem] transition-all duration-300">Cover Letter</span>
-                </Link>
-                <Link href="/interview" className="group flex items-center gap-2 rounded-full px-3 py-2 transition-all duration-300 basis-12 hover:basis-44 hover:bg-accent/60 hover:border-border border border-transparent">
-                  <GraduationCap className="h-4 w-4 text-foreground group-hover:text-primary" />
-                  <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 group-hover:max-w-[10rem] transition-all duration-300">Interview</span>
-                </Link>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <button className="group flex items-center gap-2 rounded-full px-3 py-2 transition-all duration-300 basis-12 hover:basis-36 hover:bg-accent/60 hover:border-border border border-transparent">
-                      <StarsIcon className="h-4 w-4 text-foreground group-hover:text-primary" />
-                      <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 group-hover:max-w-[7rem] transition-all duration-300">Tools</span>
-                    </button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-popover border-border backdrop-blur-xl rounded-xl shadow-2xl p-2 min-w-[200px]">
-                    <DropdownMenuItem asChild className="hover:bg-accent focus:bg-accent rounded-lg transition-colors duration-200 mb-1">
-                      <Link href="/resume" className="flex items-center py-3 px-4 font-inter">
-                        <FileText className="h-4 w-4 text-primary" />
-                        <span className="ml-3 text-foreground font-medium">Build Resume</span>
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="hover:bg-accent focus:bg-accent rounded-lg transition-colors duration-200 mb-1">
-                      <Link href="/ai-cover-letter" className="flex items-center py-3 px-4 font-inter">
-                        <PenBox className="h-4 w-4 text-primary" />
-                        <span className="ml-3 text-foreground font-medium">Cover Letter</span>
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="hover:bg-accent focus:bg-accent rounded-lg transition-colors duration-200">
-                      <Link href="/interview" className="flex items-center py-3 px-4 font-inter">
-                        <GraduationCap className="h-4 w-4 text-primary" />
-                        <span className="ml-3 text-foreground font-medium">Interview Prep</span>
-                      </Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
-            </nav>
+const GitHubStars = ({ className = "", showIcon = true }) => {
+  const [starsCount, setStarsCount] = useState(null)
+  const [loading, setLoading] = useState(true)
 
-            {/* Mobile menu */}
-            <div className="md:hidden  ">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="h-10 w-10 p-0 rounded-full border border-border/50 bg-background/80 hover:bg-primary/10 hover:border-primary/30 text-foreground transition-all duration-300 backdrop-blur-md shadow-lg hover:shadow-primary/20"
-                  >
-                    <Menu className="h-5 w-5" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  className="bg-background/95 border border-border/50 backdrop-blur-xl w-64 rounded-2xl shadow-2xl p-1 mr-4 mt-2"
-                  align="end"
-                  sideOffset={8}
-                >
-                  <div className="p-3 border-b border-border/30 mb-1">
-                    <p className="text-sm font-semibold text-foreground/80 font-inter">Navigation</p>
-                  </div>
-                  <DropdownMenuItem asChild className="hover:bg-primary/10 focus:bg-primary/10 rounded-xl transition-all duration-200 m-1">
-                    <Link href="/dashboard" className="flex items-center py-3 px-4 font-inter group">
-                      <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
-                        <LayoutDashboard className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-foreground font-medium">Industry Insights</span>
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild className="hover:bg-primary/10 focus:bg-primary/10 rounded-xl transition-all duration-200 m-1">
-                    <Link href="/resume" className="flex items-center py-3 px-4 font-inter group">
-                      <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
-                        <FileText className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-foreground font-medium">Build Resume</span>
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild className="hover:bg-primary/10 focus:bg-primary/10 rounded-xl transition-all duration-200 m-1">
-                    <Link href="/ai-cover-letter" className="flex items-center py-3 px-4 font-inter group">
-                      <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
-                        <PenBox className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-foreground font-medium">Cover Letter</span>
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild className="hover:bg-primary/10 focus:bg-primary/10 rounded-xl transition-all duration-200 m-1">
-                    <Link href="/interview" className="flex items-center py-3 px-4 font-inter group">
-                      <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
-                        <GraduationCap className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-foreground font-medium">Interview Prep</span>
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-          </SignedIn>
+  useEffect(() => {
+    const fetchStars = async () => {
+      try {
+        
+        const repoResponse = await fetch('https://github.com/vipinyadav01/AiCareerCoach.git')
+        if (repoResponse.ok) {
+          const repoData = await repoResponse.json()
+          setStarsCount(repoData.stargazers_count || 0)
+        }
+      } catch (error) {
+        console.error('Failed to fetch GitHub stars:', error)
+        setStarsCount(66) 
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchStars()
+  }, [])
 
-          {/* Auth actions */}
-          <SignedOut>
-            <div className="flex items-center gap-3 sm:gap-4">
-              <Link href="/sign-in">
-                <button className="text-muted-foreground hover:text-foreground transition-all duration-300 px-3 sm:px-4 py-2 rounded-xl hover:bg-accent text-sm sm:text-base font-medium backdrop-blur-sm font-inter">
-                  Sign In
-                </button>
-              </Link>
-              <Link href="/sign-up">
-                <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-primary/20 font-semibold text-sm sm:text-base font-inter">
-                  Get Started
-                </button>
-              </Link>
-            </div>
-          </SignedOut>
-          
-          {/* Theme & User */}
-          <ThemeToggle />
-          
-          <SignedIn>
-            <UserButton
-              appearance={{
-                elements: {
-                  avatarBox: "h-9 w-9 sm:h-11 sm:w-11 rounded-full border-2 border-border shadow-lg hover:border-primary/80 transition-all duration-300 backdrop-blur-sm",
-                  userButtonPopoverCard: "bg-popover backdrop-blur-xl border border-border shadow-2xl rounded-xl",
-                  userButtonPopoverActionButton: "text-muted-foreground hover:bg-accent hover:text-foreground p-3 rounded-lg transition-all duration-200 font-inter",
-                  userPreviewMainIdentifier: "font-bold text-foreground text-lg font-inter",
-                  userPreviewSecondaryIdentifier: "text-muted-foreground font-inter"
-                }
-              }}
-            />
-          </SignedIn>
-        </div>
+  if (loading) {
+    return (
+      <div className={`flex items-center gap-1 ${className}`}>
+        {showIcon && <Star className="w-3 h-3 text-yellow-500" />}
+        <span className="text-xs font-medium">...</span>
       </div>
-    </header>
+    )
+  }
+
+  return (
+    <div className={`flex items-center gap-1 ${className}`}>
+      {showIcon && <Star className="w-3 h-3 text-yellow-500" />}
+      <span className="text-xs font-medium">{starsCount?.toLocaleString() || '66'}</span>
+    </div>
   )
 }
+
+const Header = () => {
+  return (
+    <div className="fixed top-1.5 left-0 w-screen h-16 bg-transparent z-50 flex gap-2 items-center justify-center">
+      
+      {/* Left - Logo Section */}
+      <div className="h-full sm:w-[8vw] w-[20vw] dark:bg-transparent backdrop-blur-lg rounded-lg flex items-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl dark:shadow-black/50 dark:hover:shadow-black/70 relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-200/20 via-gray-200/20 to-gray-400/20 dark:from-gray-600/30 dark:via-gray-500/30 dark:to-gray-800/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <Link href="/" className="flex items-center gap-2 scale-[0.75] relative z-10">
+          <div className="h-8 w-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
+            <span className="text-white font-bold text-sm">LT</span>
+          </div>
+          <span className="text-gray-700 dark:text-gray-300 text-xs max-lg:hidden font-semibold">Launch Track</span>
+        </Link>
+      </div>
+
+      
+      <div className="h-full sm:w-[80vw] bg-transparent backdrop-blur-lg rounded-lg flex items-center justify-center px-8 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10 dark:from-blue-400/20 dark:via-transparent dark:to-purple-400/20"></div>
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 20">
+            <defs>
+              <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gray-300 dark:text-gray-600" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+        </div>
+
+        <SignedIn>
+          <nav className="flex items-center lg:gap-6 relative z-10">
+            <Link href="/dashboard" className="flex items-center lg:gap-3 gap-1.5 sm:px-4 px-3 py-2.5 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-all duration-200 group border border-transparent hover:border-blue-100 dark:hover:border-blue-800 hover:shadow-sm dark:hover:shadow-blue-900/20">
+              <div className="p-1.5 rounded-md bg-blue-100 dark:bg-blue-900/50 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/60 transition-colors">
+                <Home className="w-4 h-4 text-blue-600 dark:text-blue-400 transition-colors" />
+              </div>
+              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+                Dashboard
+              </span>
+            </Link>
+
+            <Link href="/resume" className="flex items-center lg:gap-3 gap-1.5 sm:px-4 px-3 py-2.5 rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-all duration-200 group border border-transparent hover:border-purple-100 dark:hover:border-purple-800 hover:shadow-sm dark:hover:shadow-purple-900/20">
+              <div className="p-1.5 rounded-md bg-purple-100 dark:bg-purple-900/50 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/60 transition-colors">
+                <FileText className="w-4 h-4 text-purple-600 dark:text-purple-400 transition-colors" />
+              </div>
+              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
+                Resume
+              </span>
+            </Link>
+
+            <Link href="/ai-cover-letter" className="flex items-center lg:gap-3 gap-1.5 sm:px-4 px-3 py-2.5 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-all duration-200 group border border-transparent hover:border-emerald-100 dark:hover:border-emerald-800 hover:shadow-sm dark:hover:shadow-emerald-900/20">
+              <div className="p-1.5 rounded-md bg-emerald-100 dark:bg-emerald-900/50 group-hover:bg-emerald-200 dark:group-hover:bg-emerald-800/60 transition-colors">
+                <PenBox className="w-4 h-4 text-emerald-600 dark:text-emerald-400 transition-colors" />
+              </div>
+              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
+                Cover Letter
+              </span>
+            </Link>
+
+            <Link href="/interview" className="flex items-center lg:gap-3 gap-1.5 sm:px-4 px-3 py-2.5 rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-200 group border border-transparent hover:border-orange-100 dark:hover:border-orange-800 hover:shadow-sm dark:hover:shadow-orange-900/20">
+              <div className="p-1.5 rounded-md bg-orange-100 dark:bg-orange-900/50 group-hover:bg-orange-200 dark:group-hover:bg-orange-800/60 transition-colors">
+                <GraduationCap className="w-4 h-4 text-orange-600 dark:text-orange-400 transition-colors" />
+              </div>
+              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors">
+                Interview
+              </span>
+            </Link>
+
+            <ThemeToggle />
+          </nav>
+        </SignedIn>
+
+        
+        <SignedOut>
+          <nav className="flex items-center lg:gap-6 relative z-10">
+            <Link href="/" className="flex items-center lg:gap-3 gap-1.5 sm:px-4 px-3 py-2.5 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-all duration-200 group border border-transparent hover:border-blue-100 dark:hover:border-blue-800">
+              <div className="p-1.5 rounded-md bg-blue-100 dark:bg-blue-900/50 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/60 transition-colors">
+                <Home className="w-4 h-4 text-blue-600 dark:text-blue-400 transition-colors" />
+              </div>
+              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+                Home
+              </span>
+            </Link>
+
+            <Link href="/sign-in" className="flex items-center lg:gap-3 gap-1.5 sm:px-4 px-3 py-2.5 rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-all duration-200 group border border-transparent hover:border-purple-100 dark:hover:border-purple-800">
+              <div className="p-1.5 rounded-md bg-purple-100 dark:bg-purple-900/50 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/60 transition-colors">
+                <svg viewBox="0 0 24 24" className="w-4 h-4 text-purple-600 dark:text-purple-400 transition-colors" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M21 12H9"/>
+                </svg>
+              </div>
+              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
+                Sign In
+              </span>
+            </Link>
+
+            <ThemeToggle />
+          </nav>
+        </SignedOut>
+      </div>
+
+      
+      <SignedIn>
+        <div className="h-full sm:w-[8vw] w-[20vw] dark:bg-transparent backdrop-blur-lg rounded-lg flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl dark:shadow-black/50 dark:hover:shadow-black/70 relative overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-200/20 via-gray-200/20 to-gray-400/20 dark:from-gray-600/30 dark:via-gray-500/30 dark:to-gray-800/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <UserButton
+            appearance={{
+              elements: {
+                avatarBox: "w-8 h-8 relative z-10",
+                userButtonPopoverCard: "bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-gray-200 dark:border-gray-700 shadow-2xl rounded-xl",
+                userButtonPopoverActionButton: "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 p-3 rounded-lg transition-all duration-200",
+                userPreviewMainIdentifier: "font-medium text-gray-900 dark:text-gray-100 text-sm",
+                userPreviewSecondaryIdentifier: "text-gray-500 dark:text-gray-400 text-xs"
+              }
+            }}
+          />
+          <GitHubStars className="relative z-10 mt-1 text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors" />
+        </div>
+      </SignedIn>
+
+      <SignedOut>
+        <Link href="/sign-up" className="h-full sm:w-[8vw] w-[20vw] dark:bg-transparent backdrop-blur-lg rounded-lg flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl dark:shadow-black/50 dark:hover:shadow-black/70 relative overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-200/20 via-gray-200/20 to-gray-400/20 dark:from-gray-600/30 dark:via-gray-500/30 dark:to-gray-800/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="w-8 h-8 flex items-center justify-center group relative z-10">
+            <svg viewBox="0 0 24 24" className="w-6 h-6 text-black dark:text-white transition-colors drop-shadow-lg" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <span className="relative z-10 mt-1 text-xs font-medium text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors">
+            Join
+          </span>
+        </Link>
+      </SignedOut>
+
+      
+      <div className="hidden">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button size="sm" variant="ghost" className="h-10 w-10 p-0">
+              <Menu className="h-5 w-5" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            {/* Mobile menu items */}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+    </div>
+  )
+}
+
 export default Header
