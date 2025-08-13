@@ -286,11 +286,15 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        
+        {/* Custom Font Preload */}
+        <link rel="preload" href="/fonts/font-nav.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+        
         <link rel="preconnect" href="https://clerk.accounts.dev" />
         <link rel="dns-prefetch" href="https://clerk.accounts.dev" />
       </head>
       <body
-        className="font-inter"
+        className="font-sans"
       >
         <ThemeProvider
             attribute="class"

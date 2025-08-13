@@ -4,67 +4,27 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from './ui/button'
-import { FileText, GraduationCap, LayoutDashboard, PenBox, Menu, Sun, Moon, Home, Star } from 'lucide-react'
+import { FileText, GraduationCap, LayoutDashboard, PenBox, Menu, Sun, Moon, Home } from 'lucide-react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
 import { ThemeToggle } from './theme-toggle'
-
-
-const GitHubStars = ({ className = "", showIcon = true }) => {
-  const [starsCount, setStarsCount] = useState(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const fetchStars = async () => {
-      try {
-        
-        const repoResponse = await fetch('https://github.com/vipinyadav01/AiCareerCoach.git')
-        if (repoResponse.ok) {
-          const repoData = await repoResponse.json()
-          setStarsCount(repoData.stargazers_count || 0)
-        }
-      } catch (error) {
-        console.error('Failed to fetch GitHub stars:', error)
-        setStarsCount(66) 
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchStars()
-  }, [])
-
-  if (loading) {
-    return (
-      <div className={`flex items-center gap-1 ${className}`}>
-        {showIcon && <Star className="w-3 h-3 text-yellow-500" />}
-        <span className="text-xs font-medium">...</span>
-      </div>
-    )
-  }
-
-  return (
-    <div className={`flex items-center gap-1 ${className}`}>
-      {showIcon && <Star className="w-3 h-3 text-yellow-500" />}
-      <span className="text-xs font-medium">{starsCount?.toLocaleString() || '66'}</span>
-    </div>
-  )
-}
+import { GitHubStars } from './github-stars'
 
 const Header = () => {
   return (
     <div className="fixed top-1.5 left-0 w-screen h-16 bg-transparent z-50 flex gap-2 items-center justify-center">
-      
-      {/* Left - Logo Section */}
+
+
       <div className="h-full sm:w-[8vw] w-[20vw] dark:bg-transparent backdrop-blur-lg rounded-lg flex items-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl dark:shadow-black/50 dark:hover:shadow-black/70 relative overflow-hidden group">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-200/20 via-gray-200/20 to-gray-400/20 dark:from-gray-600/30 dark:via-gray-500/30 dark:to-gray-800/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         <Link href="/" className="flex items-center gap-2 scale-[0.75] relative z-10">
-          <div className="h-8 w-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
-            <span className="text-white font-bold text-sm">LT</span>
+          <div className="h-8 w-8 bg-transparent rounded-lg flex items-center justify-center shadow-lg">
+            <img src="/favicon-32x32.png" alt="Launch Track Logo" className="h-8 w-8" />
           </div>
           <span className="text-gray-700 dark:text-gray-300 text-xs max-lg:hidden font-semibold">Launch Track</span>
         </Link>
       </div>
 
-      
+
       <div className="h-full sm:w-[80vw] bg-transparent backdrop-blur-lg rounded-lg flex items-center justify-center px-8 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 dark:opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10 dark:from-blue-400/20 dark:via-transparent dark:to-purple-400/20"></div>
@@ -84,7 +44,7 @@ const Header = () => {
               <div className="p-1.5 rounded-md bg-blue-100 dark:bg-blue-900/50 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/60 transition-colors">
                 <Home className="w-4 h-4 text-blue-600 dark:text-blue-400 transition-colors" />
               </div>
-              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+              <span className="lg:text-sm text-xs max-sm:hidden font-bold text-gray-700 dark:text-gray-300 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
                 Dashboard
               </span>
             </Link>
@@ -93,7 +53,7 @@ const Header = () => {
               <div className="p-1.5 rounded-md bg-purple-100 dark:bg-purple-900/50 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/60 transition-colors">
                 <FileText className="w-4 h-4 text-purple-600 dark:text-purple-400 transition-colors" />
               </div>
-              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
+              <span className="lg:text-sm text-xs max-sm:hidden font-bold text-gray-700 dark:text-gray-300 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
                 Resume
               </span>
             </Link>
@@ -102,7 +62,7 @@ const Header = () => {
               <div className="p-1.5 rounded-md bg-emerald-100 dark:bg-emerald-900/50 group-hover:bg-emerald-200 dark:group-hover:bg-emerald-800/60 transition-colors">
                 <PenBox className="w-4 h-4 text-emerald-600 dark:text-emerald-400 transition-colors" />
               </div>
-              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
+              <span className="lg:text-sm text-xs max-sm:hidden font-bold text-gray-700 dark:text-gray-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
                 Cover Letter
               </span>
             </Link>
@@ -111,7 +71,7 @@ const Header = () => {
               <div className="p-1.5 rounded-md bg-orange-100 dark:bg-orange-900/50 group-hover:bg-orange-200 dark:group-hover:bg-orange-800/60 transition-colors">
                 <GraduationCap className="w-4 h-4 text-orange-600 dark:text-orange-400 transition-colors" />
               </div>
-              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors">
+              <span className="lg:text-sm text-xs max-sm:hidden font-bold text-gray-700 dark:text-gray-300 group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors">
                 Interview
               </span>
             </Link>
@@ -120,14 +80,14 @@ const Header = () => {
           </nav>
         </SignedIn>
 
-        
+
         <SignedOut>
           <nav className="flex items-center lg:gap-6 relative z-10">
             <Link href="/" className="flex items-center lg:gap-3 gap-1.5 sm:px-4 px-3 py-2.5 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-all duration-200 group border border-transparent hover:border-blue-100 dark:hover:border-blue-800">
               <div className="p-1.5 rounded-md bg-blue-100 dark:bg-blue-900/50 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/60 transition-colors">
                 <Home className="w-4 h-4 text-blue-600 dark:text-blue-400 transition-colors" />
               </div>
-              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+              <span className="lg:text-sm text-xs max-sm:hidden font-bold text-gray-700 dark:text-gray-300 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
                 Home
               </span>
             </Link>
@@ -135,10 +95,10 @@ const Header = () => {
             <Link href="/sign-in" className="flex items-center lg:gap-3 gap-1.5 sm:px-4 px-3 py-2.5 rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-all duration-200 group border border-transparent hover:border-purple-100 dark:hover:border-purple-800">
               <div className="p-1.5 rounded-md bg-purple-100 dark:bg-purple-900/50 group-hover:bg-purple-200 dark:group-hover:bg-purple-800/60 transition-colors">
                 <svg viewBox="0 0 24 24" className="w-4 h-4 text-purple-600 dark:text-purple-400 transition-colors" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M21 12H9"/>
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M21 12H9" />
                 </svg>
               </div>
-              <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
+              <span className="lg:text-sm text-xs max-sm:hidden font-bold text-gray-700 dark:text-gray-300 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
                 Sign In
               </span>
             </Link>
@@ -148,7 +108,7 @@ const Header = () => {
         </SignedOut>
       </div>
 
-      
+
       <SignedIn>
         <div className="h-full sm:w-[8vw] w-[20vw] dark:bg-transparent backdrop-blur-lg rounded-lg flex flex-col items-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl dark:shadow-black/50 dark:hover:shadow-black/70 relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-200/20 via-gray-200/20 to-gray-400/20 dark:from-gray-600/30 dark:via-gray-500/30 dark:to-gray-800/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -172,18 +132,18 @@ const Header = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-gray-200/20 via-gray-200/20 to-gray-400/20 dark:from-gray-600/30 dark:via-gray-500/30 dark:to-gray-800/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <div className="w-8 h-8 flex items-center justify-center group relative z-10">
             <svg viewBox="0 0 24 24" className="w-6 h-6 text-black dark:text-white transition-colors drop-shadow-lg" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
           </div>
-          <span className="relative z-10 mt-1 text-xs font-medium text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors">
+          <span className="relative z-10 mt-1 text-xs font-bold text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors">
             Join
           </span>
         </Link>
       </SignedOut>
 
-      
+
       <div className="hidden">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -192,7 +152,6 @@ const Header = () => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            {/* Mobile menu items */}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
