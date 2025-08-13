@@ -119,25 +119,40 @@
   }
   body {
     @apply bg-background text-foreground;
-    position: relative;
-    /* iOS Safari improvements */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    /* Prevent iOS Safari zoom on input focus */
-    font-size: 16px;
-  }
-  
-  /* iOS Safari viewport fixes */
-  html {
-    /* Prevent iOS Safari from scaling */
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    /* Smooth scrolling for iOS */
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  /* iOS Safari input improvements */
-  input, textarea, select {
-    font-size: 16px !important;
   }
 }
+
+
+.grid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.grid-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.9));
+}
+
+/* .gradient {
+  @apply bg-gradient-to-b from-gray-400 via-gray-200 to-gray-600;
+}
+.gradient-title {
+  @apply gradient font-extrabold tracking-tighter text-transparent bg-clip-text pb-2 pr-2;
+} */

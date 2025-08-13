@@ -6,8 +6,6 @@ import PWAStatus from "@/components/pwa-status";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from '@clerk/themes'
 import { Toaster } from "@/components/ui/sonner";
-import { SplashProvider } from "@/components/splash-provider";
-import { BackgroundBeams } from "@/components/ui/background-beams";
 
 
 export const metadata = {
@@ -65,20 +63,6 @@ export const metadata = {
     capable: true,
     statusBarStyle: "default",
     title: "LaunchTrack",
-    startupImage: [
-      {
-        url: "/apple-touch-icon.png",
-        media: "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
-      },
-      {
-        url: "/apple-touch-icon.png", 
-        media: "(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
-      },
-      {
-        url: "/apple-touch-icon.png",
-        media: "(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)"
-      }
-    ]
   },
   formatDetection: {
     telephone: false,
@@ -155,186 +139,183 @@ export default function RootLayout({ children }) {
         baseTheme: dark,
       }}
     >
-      <html lang="en" suppressHydrationWarning>
-        <head>
-          {/* PWA and App Configuration */}
-          <meta name="application-name" content="LaunchTrack" />
-          <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-          <meta name="apple-mobile-web-app-title" content="LaunchTrack" />
-          <meta name="format-detection" content="telephone=no" />
-          <meta name="mobile-web-app-capable" content="yes" />
-          <meta name="msapplication-config" content="/browserconfig.xml" />
-          <meta name="msapplication-TileColor" content="#070D0D" />
-          <meta name="msapplication-tap-highlight" content="no" />
-
-          {/* Enhanced Favicon Configuration */}
-          <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
-          <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
-          <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png?v=2" />
-          <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=2" />
-
-          {/* SEO and Search Engine Tags */}
-          <meta name="google-site-verification" content="your-google-verification-code" />
-          <meta name="msvalidate.01" content="your-bing-verification-code" />
-          <link rel="canonical" href="https://launchtrack.vercel.app" />
-
-          {/* Geographic and Language Tags */}
-          <meta name="geo.region" content="IN" />
-          <meta name="geo.placename" content="Mathura, Uttar Pradesh" />
-          <meta name="geo.position" content="27.4924;77.6737" />
-          <meta name="ICBM" content="27.4924, 77.6737" />
-          <meta name="language" content="en" />
-
-          {/* Additional SEO Meta Tags */}
-          <meta name="rating" content="general" />
-          <meta name="referrer" content="origin-when-cross-origin" />
-          <meta name="theme-color" content="#EFEDE4" media="(prefers-color-scheme: light)" />
-          <meta name="theme-color" content="#070D0D" media="(prefers-color-scheme: dark)" />
-          <meta name="author" content="Vipin Yadav" />
-          <meta name="copyright" content="LaunchTrack" />
-          <meta name="coverage" content="Worldwide" />
-          <meta name="distribution" content="Global" />
-          <meta name="rating" content="general" />
-          <meta name="revisit-after" content="7 days" />
-
-          {/* Enhanced JSON-LD Structured Data */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "WebApplication",
-                "name": "LaunchTrack - AI Career Coach",
-                "description": "AI-powered career coach for job search, interview preparation, and career guidance",
-                "url": "https://launchtrack.vercel.app",
-                "applicationCategory": "EducationalApplication",
-                "operatingSystem": "Any",
-                "browserRequirements": "Requires JavaScript. Requires HTML5.",
-                "offers": {
-                  "@type": "Offer",
-                  "price": "0",
-                  "priceCurrency": "USD",
-                  "availability": "https://schema.org/InStock"
-                },
-                "creator": {
-                  "@type": "Person",
-                  "name": "Vipin Yadav",
-                  "url": "https://github.com/vipinyadav01"
-                },
-                "publisher": {
-                  "@type": "Organization",
-                  "name": "LaunchTrack",
-                  "url": "https://launchtrack.vercel.app"
-                },
-                "keywords": "AI Career Coach, Job Search, Interview Preparation, GLA University, LaunchTrack, Career Development",
-                "featureList": [
-                  "AI-powered job search assistance",
-                  "Interview preparation tools",
-                  "Cover letter generation",
-                  "Career guidance and planning",
-                  "Resume optimization",
-                  "Industry insights"
-                ],
-                "screenshot": "https://launchtrack.vercel.app/android-chrome-512x512.png",
-                "softwareVersion": "1.0.0",
-                "datePublished": "2024-01-01",
-                "dateModified": new Date().toISOString().split('T')[0]
-              })
-            }}
-          />
-
-          {/* Organization Schema */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
+    <html lang="en" suppressHydrationWarning>
+            <head>
+        {/* PWA and App Configuration */}
+        <meta name="application-name" content="LaunchTrack" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="LaunchTrack" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta name="msapplication-TileColor" content="#070D0D" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        
+        {/* Enhanced Favicon Configuration */}
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png?v=2" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=2" />
+        
+        {/* SEO and Search Engine Tags */}
+        <meta name="google-site-verification" content="your-google-verification-code" />
+        <meta name="msvalidate.01" content="your-bing-verification-code" />
+        <link rel="canonical" href="https://launchtrack.vercel.app" />
+        
+        {/* Geographic and Language Tags */}
+        <meta name="geo.region" content="IN" />
+        <meta name="geo.placename" content="Mathura, Uttar Pradesh" />
+        <meta name="geo.position" content="27.4924;77.6737" />
+        <meta name="ICBM" content="27.4924, 77.6737" />
+        <meta name="language" content="en" />
+        
+        {/* Additional SEO Meta Tags */}
+        <meta name="rating" content="general" />
+        <meta name="referrer" content="origin-when-cross-origin" />
+        <meta name="theme-color" content="#EFEDE4" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#070D0D" media="(prefers-color-scheme: dark)" />
+        <meta name="author" content="Vipin Yadav" />
+        <meta name="copyright" content="LaunchTrack" />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="distribution" content="Global" />
+        <meta name="rating" content="general" />
+        <meta name="revisit-after" content="7 days" />
+        
+        {/* Enhanced JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "LaunchTrack - AI Career Coach",
+              "description": "AI-powered career coach for job search, interview preparation, and career guidance",
+              "url": "https://launchtrack.vercel.app",
+              "applicationCategory": "EducationalApplication",
+              "operatingSystem": "Any",
+              "browserRequirements": "Requires JavaScript. Requires HTML5.",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock"
+              },
+              "creator": {
+                "@type": "Person",
+                "name": "Vipin Yadav",
+                "url": "https://github.com/vipinyadav01"
+              },
+              "publisher": {
                 "@type": "Organization",
                 "name": "LaunchTrack",
-                "url": "https://launchtrack.vercel.app",
-                "logo": "https://launchtrack.vercel.app/android-chrome-512x512.png",
-                "description": "AI-powered career coaching platform",
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressLocality": "Mathura",
-                  "addressRegion": "Uttar Pradesh",
-                  "addressCountry": "IN"
-                },
-                "contactPoint": {
-                  "@type": "ContactPoint",
-                  "contactType": "customer service",
-                  "availableLanguage": "English"
-                },
-                "sameAs": [
-                  "https://github.com/vipinyadav01"
-                ]
-              })
-            }}
-          />
-
-          {/* Open Graph Tags */}
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content="LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep" />
-          <meta property="og:description" content="Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, cover letter generation, and career guidance." />
-          <meta property="og:site_name" content="LaunchTrack" />
-          <meta property="og:url" content="https://launchtrack.vercel.app" />
-          <meta property="og:image" content="https://launchtrack.vercel.app/android-chrome-512x512.png" />
-          <meta property="og:image:width" content="512" />
-          <meta property="og:image:height" content="512" />
-          <meta property="og:image:alt" content="LaunchTrack - AI Career Coach Logo" />
-          <meta property="og:locale" content="en_US" />
-          <meta property="og:image:type" content="image/png" />
-
-          {/* Twitter Card Tags */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@LaunchTrack" />
-          <meta name="twitter:creator" content="@LaunchTrack" />
-          <meta name="twitter:title" content="LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep" />
-          <meta name="twitter:description" content="Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, and career guidance." />
-          <meta name="twitter:image" content="https://launchtrack.vercel.app/android-chrome-512x512.png" />
-          <meta name="twitter:image:alt" content="LaunchTrack - AI Career Coach Logo" />
-
-          {/* Preconnect for Performance */}
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-          <link rel="preconnect" href="https://clerk.accounts.dev" />
-          <link rel="dns-prefetch" href="https://clerk.accounts.dev" />
-        </head>
-        <body
-          className="font-inter"
-        >
-          <BackgroundBeams className="fixed inset-0 -z-10" />
-          <SplashProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="dark"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {/* Header */}
-              <HeaderWrapper />
-              <main className="min-h-screen">
-                {children}
-              </main>
-              <PWAInstallPrompt />
-              <PWAStatus />
-              <Toaster richColors />
-              {/* Footer */}
-              <footer className="bg-muted/50 text-foreground py-12 text-center">
-                <div className="container mx-auto px-4 text-center text-muted-foreground">
-                  <p className="text-sm">
-                    © {new Date().getFullYear()} LaunchTrack. All rights reserved.
-                  </p>
-                </div>
-              </footer>
-            </ThemeProvider>
-          </SplashProvider>
-        </body>
-      </html>
+                "url": "https://launchtrack.vercel.app"
+              },
+              "keywords": "AI Career Coach, Job Search, Interview Preparation, GLA University, LaunchTrack, Career Development",
+              "featureList": [
+                "AI-powered job search assistance",
+                "Interview preparation tools",
+                "Cover letter generation",
+                "Career guidance and planning",
+                "Resume optimization",
+                "Industry insights"
+              ],
+              "screenshot": "https://launchtrack.vercel.app/android-chrome-512x512.png",
+              "softwareVersion": "1.0.0",
+              "datePublished": "2024-01-01",
+              "dateModified": new Date().toISOString().split('T')[0]
+            })
+          }}
+        />
+        
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "LaunchTrack",
+              "url": "https://launchtrack.vercel.app",
+              "logo": "https://launchtrack.vercel.app/android-chrome-512x512.png",
+              "description": "AI-powered career coaching platform",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Mathura",
+                "addressRegion": "Uttar Pradesh",
+                "addressCountry": "IN"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "availableLanguage": "English"
+              },
+              "sameAs": [
+                "https://github.com/vipinyadav01"
+              ]
+            })
+          }}
+        />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep" />
+        <meta property="og:description" content="Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, cover letter generation, and career guidance." />
+        <meta property="og:site_name" content="LaunchTrack" />
+        <meta property="og:url" content="https://launchtrack.vercel.app" />
+        <meta property="og:image" content="https://launchtrack.vercel.app/android-chrome-512x512.png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:alt" content="LaunchTrack - AI Career Coach Logo" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image:type" content="image/png" />
+        
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@LaunchTrack" />
+        <meta name="twitter:creator" content="@LaunchTrack" />
+        <meta name="twitter:title" content="LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep" />
+        <meta name="twitter:description" content="Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, and career guidance." />
+        <meta name="twitter:image" content="https://launchtrack.vercel.app/android-chrome-512x512.png" />
+        <meta name="twitter:image:alt" content="LaunchTrack - AI Career Coach Logo" />
+        
+        {/* Preconnect for Performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://clerk.accounts.dev" />
+        <link rel="dns-prefetch" href="https://clerk.accounts.dev" />
+      </head>
+      <body
+        className="font-inter"
+      >
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {/* Header */}
+            <HeaderWrapper/>
+            <main className="min-h-screen">
+{children}
+            </main>
+            <PWAInstallPrompt />
+            <PWAStatus />
+            <Toaster richColors/>
+            {/* Footer */}
+            <footer className="bg-muted/50  text-white py-12 text-center">
+              <div className="container mx-auto px-4 text-center text-gray-300">
+                <p className="text-sm">
+                  © {new Date().getFullYear()} Ai Career Coach. All rights reserved.
+                </p>
+              </div>
+            </footer>
+          </ThemeProvider>
+      </body>
+    </html>
     </ClerkProvider>
   );
 }
