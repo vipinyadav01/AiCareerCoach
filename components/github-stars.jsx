@@ -12,8 +12,6 @@ export function GitHubStars({ className = "", showIcon = true, repoUrl = "vipiny
       try {
         setLoading(true)
         setError(false)
-        
-        // Use the correct GitHub API endpoint for your repository
         const apiUrl = `https://api.github.com/repos/${repoUrl}`
         
         const response = await fetch(apiUrl, {
@@ -28,11 +26,12 @@ export function GitHubStars({ className = "", showIcon = true, repoUrl = "vipiny
           const data = await response.json()
           setStarsCount(data.stargazers_count || 0)
         } else {
-          setStarsCount(3) // Fallback to actual star count
+          setStarsCount(3)
           setError(true)
         }
       } catch (error) {
-        setStarsCount(3) // Fallback to actual star count
+        console.warn('Failed to fetch GitHub stars:', error)
+        setStarsCount(3) 
         setError(true)
       } finally {
         setLoading(false)
@@ -44,23 +43,29 @@ export function GitHubStars({ className = "", showIcon = true, repoUrl = "vipiny
 
   if (loading) {
     return (
-      <div className={`flex items-center gap-1 ${className}`}>
-        {showIcon && <Star className="w-4 h-4 text-yellow-500 animate-pulse" />}
-        <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">...</span>
+      <div className={`flex items-center gap-1 sm:gap-1.5 ${className}`}>
+        {showIcon && <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 animate-pulse" />}
+        <span className="text-xs sm:text-sm font-semibold font-nav text-gray-500 dark:text-gray-400">...</span>
       </div>
     )
   }
 
   return (
-    <div className={`flex items-center gap-1 ${className}`}>
+    <a 
+      href={`https://github.com/${repoUrl}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`flex items-center gap-1 sm:gap-1.5 hover:scale-105 transition-transform duration-200 ${className}`}
+      title={`Star us on GitHub! Currently ${starsCount?.toLocaleString() || '3'} stars`}
+    >
       {showIcon && (
         <Star 
-          className={`w-4 h-4 ${error ? 'text-gray-400 dark:text-gray-500' : 'text-yellow-500 fill-current'}`} 
+          className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors ${error ? 'text-gray-400 dark:text-gray-500' : 'text-yellow-500 fill-current hover:text-yellow-600 dark:hover:text-yellow-400'}`} 
         />
       )}
-      <span className={`text-xs font-semibold ${error ? 'text-gray-500 dark:text-gray-400' : 'text-gray-700 dark:text-gray-300'}`}>
+      <span className={`text-xs sm:text-sm font-semibold font-nav transition-colors ${error ? 'text-gray-500 dark:text-gray-400' : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'}`}>
         {starsCount?.toLocaleString() || '3'}
       </span>
-    </div>
+    </a>
   )
 }
