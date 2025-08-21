@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 import { Button } from './ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
+import { Badge } from './ui/badge'
 import { ContainerScroll } from './ui/container-scroll-animation'
 import { TextHoverEffect } from './ui/text-hover-effect'
 import { TypewriterEffect } from "./ui/typewriter-effect";
@@ -24,161 +26,167 @@ const HeroSection = () => {
   },
   {
     text: "Insights",
-    className: "text-neutral-800 dark:text-neutral-200",
+    className: "text-foreground",
   },
 ];
 
-
     return (
         <section className='relative w-full min-h-screen pt-20 md:pt-32 pb-16 overflow-hidden bg-transparent'>
-
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-40 -right-40 w-96 h-96 bg-slate-200/20 dark:bg-slate-700/20 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute top-40 -left-40 w-80 h-80 bg-slate-300/15 dark:bg-slate-600/15 rounded-full blur-3xl animate-pulse delay-1000" />
-                <div className="absolute bottom-20 right-20 w-60 h-60 bg-slate-400/10 dark:bg-slate-500/10 rounded-full blur-2xl animate-pulse delay-2000" />
+                <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-primary/8 via-primary/3 to-transparent rounded-full blur-3xl animate-pulse" />
+                <div className="absolute top-40 -left-40 w-80 h-80 bg-gradient-to-tr from-secondary/12 via-secondary/6 to-transparent rounded-full blur-3xl animate-pulse delay-1000" />
+                <div className="absolute bottom-20 right-20 w-60 h-60 bg-gradient-to-tl from-accent/8 via-accent/3 to-transparent rounded-full blur-2xl animate-pulse delay-2000" />
+                
+                <div className="absolute top-1/3 right-1/3 w-32 h-32 bg-muted/10 rounded-full blur-xl animate-bounce" style={{ animationDuration: '6s' }} />
+                <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-muted/8 rounded-full blur-lg animate-bounce delay-3000" style={{ animationDuration: '8s' }} />
+                
+                <div className="absolute inset-0 bg-grid-small-border/[0.01] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
             </div>
 
             <div className='relative z-10'>
                 <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-                    <div className='text-center space-y-10'>
-
-                        <div className='space-y-8'>
-                            <div className="inline-flex items-center px-6 py-3 rounded-full bg-background dark:bg-background/80 border border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 text-sm font-semibold mb-8 shadow-sm hover:shadow-md transition-shadow duration-300">
-                                <span className="mr-2 text-lg">🚀</span>
+                    <div className='text-center space-y-12'>
+                        <div className='space-y-10'>
+                            <Badge variant="secondary" className="px-6 py-3 text-sm font-medium bg-background/60 backdrop-blur-md border-border/50 hover:bg-background/80 transition-all duration-300 hover:scale-105">
+                                <div className="w-2 h-2 bg-primary rounded-full mr-3 animate-pulse" />
                                 AI-Powered Career Guidance
-                            </div>
+                                <div className="ml-3 text-lg">🚀</div>
+                            </Badge>
 
-
-                            <div className="space-y-6">
-                                <h1 className="text-5xl sm:text-7xl md:text-9xl font-black leading-tight text-slate-900 dark:text-slate-100">
-                                    <TextHoverEffect text="SIKHO" />
-                                </h1>
+                            <div className="space-y-8">
+                                <div className="relative">
+                                    <h1 className="text-6xl sm:text-8xl md:text-[8rem] font-black leading-[0.9] text-foreground tracking-tight">
+                                        <TextHoverEffect text="SIKHO" />
+                                    </h1>
+                                </div>
+                                
                                 <div className="flex justify-center">
                                     <TypewriterEffect
                                         words={words}
-                                        className="text-2xl sm:text-4xl md:text-6xl font-bold text-slate-700 dark:text-slate-300"
+                                        className="text-xl sm:text-3xl md:text-4xl font-semibold text-muted-foreground"
                                     />
                                 </div>
                             </div>
 
-                            <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed mt-8 font-medium">
-                                Transform your career journey with personalized AI guidance, intelligent job matching, and expert insights tailored to your unique path.
+                            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                                Transform your career journey with{' '}
+                                <span className="font-semibold text-foreground">personalized AI guidance</span>,{' '}
+                                intelligent job matching, and expert insights tailored to your unique path.
                             </p>
                         </div>
 
-
-                        <div className='flex flex-col sm:flex-row items-center justify-center gap-6 pt-8'>
+                        <div className='flex flex-col sm:flex-row items-center justify-center gap-4 pt-8'>
                             <Link href="/dashboard">
                                 <Button
                                     size="lg"
-                                    className="w-52 h-14 rounded-2xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-slate-200 text-white dark:text-slate-900 font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border-0"
+                                    className="w-48 h-12 rounded-xl font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
                                 >
                                     Start Your Journey
+                                    <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
                                 </Button>
                             </Link>
                             <Link href="/sign-in">
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    className="w-52 h-14 rounded-2xl bg-transparent text-slate-900 dark:text-slate-100 border-2 border-slate-300 dark:border-slate-600 hover:border-slate-500 dark:hover:border-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 font-bold text-lg transition-all duration-300 hover:shadow-lg backdrop-blur-sm"
+                                    className="w-48 h-12 rounded-xl font-semibold text-base transition-all duration-300 hover:scale-105 bg-background/60 backdrop-blur-md border-border/50"
                                 >
                                     Explore Features
                                 </Button>
                             </Link>
                         </div>
 
-
                         <div className="pt-16">
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                                 {[
                                     {
                                         title: "AI-Powered Matching",
                                         description: "Smart algorithms connect you with perfect opportunities",
-                                        dotColor: "bg-emerald-500",
-                                        delay: "",
+                                        icon: "🎯"
                                     },
                                     {
-                                        title: "Personalized Guidance",
+                                        title: "Personalized Guidance", 
                                         description: "Tailored advice based on your skills and goals",
-                                        dotColor: "bg-sky-500",
-                                        delay: "delay-200",
+                                        icon: "🧭"
                                     },
                                     {
                                         title: "Career Analytics",
                                         description: "Data-driven insights to accelerate your growth",
-                                        dotColor: "bg-violet-500",
-                                        delay: "delay-500",
+                                        icon: "📊"
                                     },
-                                ].map(({ title, description, dotColor, delay }, idx) => (
-                                    <div
+                                ].map(({ title, description, icon }, idx) => (
+                                    <Card
                                         key={idx}
-                                        className="group flex flex-col items-center space-y-4 text-neutral-700 dark:text-neutral-300 bg-background dark:bg-background/80 rounded-2xl p-6 backdrop-blur-sm border border-neutral-200/50 dark:border-neutral-700/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-2"
+                                        className="group bg-card/30 backdrop-blur-md border-border/50 hover:border-border/80 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-card/40"
                                     >
-                                        <div
-                                            className={`w-4 h-4 ${dotColor} rounded-full animate-pulse ${delay} group-hover:scale-110 transition-transform duration-300`}
-                                        ></div>
-                                        <div className="text-center">
-                                            <h3 className="font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+                                        <CardHeader className="text-center space-y-4 pb-2">
+                                            <div className="text-2xl group-hover:scale-110 transition-transform duration-300">
+                                                {icon}
+                                            </div>
+                                            <div className="w-2 h-2 bg-primary rounded-full animate-pulse mx-auto" />
+                                            <CardTitle className="text-lg">
                                                 {title}
-                                            </h3>
-                                            <p className="text-sm text-neutral-600 dark:text-neutral-400">{description}</p>
-                                        </div>
-                                    </div>
+                                            </CardTitle>
+                                        </CardHeader>
+                                        <CardContent className="text-center pt-0">
+                                            <CardDescription className="text-sm leading-relaxed">
+                                                {description}
+                                            </CardDescription>
+                                        </CardContent>
+                                    </Card>
                                 ))}
                             </div>
                         </div>
 
-
-
                         <div className="pt-12">
-                            <div className="flex flex-wrap justify-center items-center gap-8 text-slate-600 dark:text-slate-400">
-                                <div className="flex items-center space-x-2">
-                                    <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
-                                    <span className="text-sm font-medium">10+ Success Stories</span>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                    <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
-                                    <span className="text-sm font-medium">95% Match Accuracy</span>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                    <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
-                                    <span className="text-sm font-medium">24/7 AI Support</span>
-                                </div>
+                            <div className="flex flex-wrap justify-center items-center gap-8 text-muted-foreground">
+                                {[
+                                    { stat: "10+ Success Stories", icon: "⭐" },
+                                    { stat: "95% Match Accuracy", icon: "🎯" },
+                                    { stat: "24/7 AI Support", icon: "🤖" },
+                                ].map(({ stat, icon }, idx) => (
+                                    <Badge key={idx} variant="outline" className="px-4 py-2 bg-background/40 backdrop-blur-md border-border/30 hover:bg-background/60 hover:text-foreground transition-all duration-300">
+                                        <span className="text-base mr-2">{icon}</span>
+                                        <span className="text-sm font-medium">{stat}</span>
+                                    </Badge>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-                <div className="mt-10 md:mt-10 mb-0 md:mb-2">
+                <div className="mt-20">
                     <div className="flex flex-col overflow-hidden">
                         <ContainerScroll
                             titleComponent={
                                 <>
-                                    <h2 className="text-4xl md:text-6xl font-black text-center mb-12 text-slate-900 dark:text-slate-100">
+                                    <h2 className="text-4xl md:text-6xl font-bold text-center mb-12 text-foreground tracking-tight">
                                         Unleash the power of
                                         <br />
-                                        <span className="text-4xl md:text-7xl bg-gradient-to-r from-slate-700 via-slate-900 to-slate-800 dark:from-slate-300 dark:via-slate-100 dark:to-slate-200 bg-clip-text text-transparent font-black mt-6 leading-none">
-                                            AI Career Coaching
+                                        <span className="text-5xl md:text-7xl bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent font-bold mt-4 leading-tight">
+                                            AI Career Platform
                                         </span>
                                     </h2>
                                 </>
                             }
                         >
-                            <div className="relative group w-full mx-auto rounded-2xl md:rounded-3xl overflow-hidden aspect-[2/1]">
-                                <img
-                                    src={`/banner.png`}
-                                    alt="AI Career Coach Dashboard Preview"
-                                    height={720}
-                                    width={1400}
-                                    className="absolute inset-0 h-full w-full object-cover object-left-top shadow-2xl border border-slate-200/60 dark:border-slate-700/60 group-hover:shadow-3xl transition-shadow duration-500"
-                                    draggable={false}
-                                />
-
-                                <div className="pointer-events-none absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-t from-slate-900/20 via-transparent to-slate-100/10 dark:from-slate-900/40 dark:to-slate-800/20" />
-                                <div className="pointer-events-none absolute top-3 md:top-4 right-3 md:right-4 w-2.5 md:w-3 h-2.5 md:h-3 bg-slate-400 dark:bg-slate-500 rounded-full opacity-60"></div>
-                                <div className="pointer-events-none absolute bottom-3 md:bottom-4 left-3 md:left-4 w-2 h-2 bg-slate-500 dark:bg-slate-400 rounded-full opacity-40"></div>
-                            </div>
+                            <Card className="w-full rounded-xl overflow-hidden aspect-[2/1] border-border shadow-xl bg-card/80 backdrop-blur-md">
+                                <CardContent className="p-0 relative">
+                                    <img
+                                        src={`/banner.png`}
+                                        alt="AI Career Platform Dashboard Preview"
+                                        height={720}
+                                        width={1400}
+                                        className="w-full h-full object-cover object-left-top"
+                                        draggable={false}
+                                    />
+                                    
+                                    <div className="absolute inset-0 bg-gradient-to-t from-background/10 to-transparent pointer-events-none" />
+                                    
+                                    <div className="absolute top-4 right-4 w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                                    <div className="absolute bottom-4 left-4 w-2 h-2 bg-blue-500 rounded-full animate-pulse delay-1000" />
+                                </CardContent>
+                            </Card>
                         </ContainerScroll>
                     </div>
                 </div>

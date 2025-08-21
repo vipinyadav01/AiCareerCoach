@@ -1,4 +1,4 @@
-# 🚀 LaunchTrack - AI Career Coaching Platform
+# 🚀 LaunchTrack - AI Career Platforming Platform
 
 <div align="center">
   <img src="./public/android-chrome-512x512.png" alt="LaunchTrack Logo" width="128" height="128" />

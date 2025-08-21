@@ -3,7 +3,7 @@
 import Head from 'next/head';
 
 export default function SEOTags({ 
-  title = "LaunchTrack - AI Career Coach | Vipin Yadav",
+  title = "LaunchTrack - AI Career Platform | Vipin Yadav",
   description = "Your AI-powered career coach for personalized job search, interview preparation, and career guidance. From GLA University to global success.",
   keywords = [],
   canonical = "https://launchtrack.vercel.app",
@@ -14,7 +14,7 @@ export default function SEOTags({
   const defaultKeywords = [
     "LaunchTrack",
     "LaunchTrack GLA",
-    "AI Career Coach", 
+    "AI Career Platform", 
     "GLA University",
     "Job Search AI",
     "Interview Preparation",
@@ -27,7 +27,7 @@ export default function SEOTags({
   const defaultStructuredData = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "LaunchTrack - AI Career Coach",
+    "name": "LaunchTrack - AI Career Platform",
     "description": description,
     "url": canonical,
     "applicationCategory": "EducationalApplication",

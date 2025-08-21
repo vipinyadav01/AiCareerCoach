@@ -1,6 +1,6 @@
 export const faqs = [
   {
-    question: "How does the AI career coaching work?",
+    question: "How does the AI Career Platforming work?",
     answer: "Our AI analyzes your skills, experience, and career goals to provide personalized recommendations. It uses machine learning to match you with relevant opportunities and suggests specific actions to advance your career."
   },
   {

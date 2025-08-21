@@ -13,13 +13,28 @@ const nextConfig = {
                 '**/node_modules/**',
                 '**/.*',
                 '**/*.swp',
-                '**/*.swo',
+                '**/*.swo', 
                 '**/*~',
                 '**/Application Data/**',
                 '**/AppData/**',
                 '**/.next/**',
+                'C:/Users/**/Application Data/**',
+                'C:/Users/**/AppData/**',
+                '/Users/**/Application Data/**',
+                '/Users/**/AppData/**',
             ],
         };
+
+        // Improve build performance and fix permission issues
+        config.snapshot = {
+            ...config.snapshot,
+            managedPaths: [/^(.+?[\\/]node_modules[\\/]).*$/],
+            buildDependencies: {
+                hash: true,
+                timestamp: true,
+            },
+        };
+
         return config;
     },
 };

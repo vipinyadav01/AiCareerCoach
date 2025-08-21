@@ -12,13 +12,13 @@ import { BackgroundBeams } from "@/components/ui/background-beams";
 export const metadata = {
   metadataBase: new URL('https://launchtrack.vercel.app'),
   title: {
-    default: "LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep",
-    template: "%s | LaunchTrack - AI Career Coach"
+    default: "LaunchTrack - AI Career Platform | Personalized Job Search & Interview Prep",
+    template: "%s | LaunchTrack - AI Career Platform"
   },
   description: "Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, cover letter generation, and career guidance. From GLA University students to professionals worldwide.",
   keywords: [
     "LaunchTrack",
-    "AI Career Coach",
+    "AI Career Platform",
     "Job Search AI",
     "Interview Preparation",
     "Cover Letter Generator",
@@ -84,8 +84,8 @@ export const metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "LaunchTrack - AI Career Coach",
-    title: "LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep",
+    siteName: "LaunchTrack - AI Career Platform",
+    title: "LaunchTrack - AI Career Platform | Personalized Job Search & Interview Prep",
     description: "Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, cover letter generation, and career guidance.",
     url: "https://launchtrack.vercel.app",
     images: [
@@ -93,14 +93,14 @@ export const metadata = {
         url: "/android-chrome-512x512.png",
         width: 512,
         height: 512,
-        alt: "LaunchTrack - AI Career Coach Logo",
+        alt: "LaunchTrack - AI Career Platform Logo",
         type: "image/png",
       },
       {
         url: "/banner.png",
         width: 1200,
         height: 630,
-        alt: "LaunchTrack - AI Career Coach Banner",
+        alt: "LaunchTrack - AI Career Platform Banner",
         type: "image/png",
       }
     ],
@@ -110,7 +110,7 @@ export const metadata = {
     card: "summary_large_image",
     site: "@LaunchTrack",
     creator: "@LaunchTrack",
-    title: "LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep",
+    title: "LaunchTrack - AI Career Platform | Personalized Job Search & Interview Prep",
     description: "Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, and career guidance.",
     images: ["/android-chrome-512x512.png"],
   },
@@ -192,7 +192,7 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebApplication",
-              "name": "LaunchTrack - AI Career Coach",
+              "name": "LaunchTrack - AI Career Platform",
               "description": "AI-powered career coach for job search, interview preparation, and career guidance",
               "url": "https://launchtrack.vercel.app",
               "applicationCategory": "EducationalApplication",
@@ -214,7 +214,7 @@ export default function RootLayout({ children }) {
                 "name": "LaunchTrack",
                 "url": "https://launchtrack.vercel.app"
               },
-              "keywords": "AI Career Coach, Job Search, Interview Preparation, GLA University, LaunchTrack, Career Development",
+              "keywords": "AI Career Platform, Job Search, Interview Preparation, GLA University, LaunchTrack, Career Development",
               "featureList": [
                 "AI-powered job search assistance",
                 "Interview preparation tools",
@@ -262,14 +262,14 @@ export default function RootLayout({ children }) {
         
         {/* Open Graph Tags */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep" />
+        <meta property="og:title" content="LaunchTrack - AI Career Platform | Personalized Job Search & Interview Prep" />
         <meta property="og:description" content="Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, cover letter generation, and career guidance." />
         <meta property="og:site_name" content="LaunchTrack" />
         <meta property="og:url" content="https://launchtrack.vercel.app" />
         <meta property="og:image" content="https://launchtrack.vercel.app/android-chrome-512x512.png" />
         <meta property="og:image:width" content="512" />
         <meta property="og:image:height" content="512" />
-        <meta property="og:image:alt" content="LaunchTrack - AI Career Coach Logo" />
+        <meta property="og:image:alt" content="LaunchTrack - AI Career Platform Logo" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:image:type" content="image/png" />
         
@@ -277,24 +277,25 @@ export default function RootLayout({ children }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@LaunchTrack" />
         <meta name="twitter:creator" content="@LaunchTrack" />
-        <meta name="twitter:title" content="LaunchTrack - AI Career Coach | Personalized Job Search & Interview Prep" />
+        <meta name="twitter:title" content="LaunchTrack - AI Career Platform | Personalized Job Search & Interview Prep" />
         <meta name="twitter:description" content="Transform your career with LaunchTrack's AI-powered career coach. Get personalized job search assistance, interview preparation, and career guidance." />
         <meta name="twitter:image" content="https://launchtrack.vercel.app/android-chrome-512x512.png" />
-        <meta name="twitter:image:alt" content="LaunchTrack - AI Career Coach Logo" />
+        <meta name="twitter:image:alt" content="LaunchTrack - AI Career Platform Logo" />
         
         {/* Preconnect for Performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         
-        {/* Custom Font Preload */}
+        {/* Custom Font Preloads */}
         <link rel="preload" href="/fonts/font-nav.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/fonts/variable/JetBrainsMono[wght].ttf" as="font" type="font/truetype" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/fonts/variable/JetBrainsMono-Italic[wght].ttf" as="font" type="font/truetype" crossOrigin="anonymous" />
         
         <link rel="preconnect" href="https://clerk.accounts.dev" />
         <link rel="dns-prefetch" href="https://clerk.accounts.dev" />
       </head>
       <body
-        className="font-sans"
+        className="font-jetbrains antialiased"
       >
         <ThemeProvider
             attribute="class"
@@ -316,7 +317,7 @@ export default function RootLayout({ children }) {
             <footer className="bg-muted/50  text-white py-12 text-center">
               <div className="container mx-auto px-4 text-center text-gray-300">
                 <p className="text-sm">
-                  © {new Date().getFullYear()} Ai Career Coach. All rights reserved.
+                  © {new Date().getFullYear()} AI Career Platform. All rights reserved.
                 </p>
               </div>
             </footer>

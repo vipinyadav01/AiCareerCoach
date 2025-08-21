@@ -91,7 +91,7 @@ const SEOOptimizer = ({
                   "name": "Is LaunchTrack free to use?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, LaunchTrack offers free access to its core features, including AI career coaching, role-based interview question generation, analytics on job trends, and resume and cover letter building tools."
+                    "text": "Yes, LaunchTrack offers free access to its core features, including AI Career Platforming, role-based interview question generation, analytics on job trends, and resume and cover letter building tools."
                   }
                 }
               ]

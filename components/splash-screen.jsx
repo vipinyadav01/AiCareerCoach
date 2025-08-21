@@ -102,7 +102,7 @@ const SplashScreen = ({ onComplete }) => {
                  LaunchTrack
                </h1>
                <p className="text-gray-700 dark:text-white/70 text-lg">
-                 AI Career Coach
+                 AI Career Platform
                </p>
             </motion.div>
 

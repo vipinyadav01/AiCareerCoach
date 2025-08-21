@@ -36,7 +36,7 @@ export function ThemeToggle() {
           <Moon className="w-4 h-4 text-amber-600" />
         )}
       </div>
-      <span className="lg:text-sm text-xs max-sm:hidden font-medium text-gray-700 dark:text-gray-300 group-hover:text-amber-700 dark:group-hover:text-indigo-300 transition-colors">
+      <span className="lg:text-sm text-xs max-sm:hidden font-medium font-nav text-gray-700 dark:text-gray-300 group-hover:text-amber-700 dark:group-hover:text-indigo-300 transition-colors">
         {isDark ? "Light" : "Dark"}
       </span>
     </div>
