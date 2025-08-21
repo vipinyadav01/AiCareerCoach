@@ -1,0 +1,16 @@
+# Ignore Windows system directories
+**/Application Data/**
+**/AppData/**
+**/Program Files/**
+**/Windows/**
+C:/Users/**/Application Data/**
+C:/Users/**/AppData/**
+
+# Ignore development files
+.env.local
+.env.development
+.env.test
+*.log
+.env
+.DS_Store
+Thumbs.db
