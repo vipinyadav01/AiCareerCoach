@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import HeaderWrapper from "@/components/header-wrapper";
 import PWAInstallPrompt from "@/components/pwa-install-prompt";
 import PWAStatus from "@/components/pwa-status";
+import LayoutWrapper from "@/components/layout-wrapper";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from '@clerk/themes'
 import { Toaster } from "@/components/ui/sonner";
@@ -296,32 +297,35 @@ export default function RootLayout({ children }) {
       </head>
       <body
         className="font-jetbrains antialiased"
+        suppressHydrationWarning={true}
       >
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {/* Global animated background */}
-            <BackgroundBeams className="fixed inset-0 -z-10 pointer-events-none" />
-            {/* Header */}
-            <HeaderWrapper/>
-            <main className="min-h-screen">
-{children}
-            </main>
-            <PWAInstallPrompt />
-            <PWAStatus />
-            <Toaster richColors/>
-            {/* Footer */}
-            <footer className="bg-muted/50  text-white py-12 text-center">
-              <div className="container mx-auto px-4 text-center text-gray-300">
-                <p className="text-sm">
-                  © {new Date().getFullYear()} AI Career Platform. All rights reserved.
-                </p>
-              </div>
-            </footer>
-          </ThemeProvider>
+        <LayoutWrapper>
+          <ThemeProvider
+              attribute="class"
+              defaultTheme="dark"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {/* Global animated background */}
+              <BackgroundBeams className="fixed inset-0 -z-10 pointer-events-none" />
+              {/* Header */}
+              <HeaderWrapper/>
+              <main className="min-h-screen">
+  {children}
+              </main>
+              <PWAInstallPrompt />
+              <PWAStatus />
+              <Toaster richColors/>
+              {/* Footer */}
+              <footer className="bg-muted/50  text-white py-12 text-center">
+                <div className="container mx-auto px-4 text-center text-gray-300">
+                  <p className="text-sm">
+                    © {new Date().getFullYear()} AI Career Platform. All rights reserved.
+                  </p>
+                </div>
+              </footer>
+            </ThemeProvider>
+        </LayoutWrapper>
       </body>
     </html>
     </ClerkProvider>
