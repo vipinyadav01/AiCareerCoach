@@ -7,9 +7,14 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
 } from "recharts";
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+} from "@/components/ui/chart";
 import {
   BriefcaseIcon,
   LineChart,
@@ -30,7 +35,6 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 
 const DashboardView = ({ insights }) => {
-  // Transform salary data for the chart
   const salaryData = insights.salaryRanges.map((range) => ({
     name: range.role,
     min: range.min / 1000,
@@ -53,11 +57,11 @@ const DashboardView = ({ insights }) => {
 
   const getMarketOutlookInfo = (outlook) => {
     switch (outlook.toLowerCase()) {
-      case "positive": // Use emerald for positive outlook
+      case "positive":
         return { icon: TrendingUp, color: "text-emerald-500" };
       case "neutral":
-        return { icon: LineChart, color: "text-amber-500" }; // Use amber for neutral
-      case "negative": // Use rose for negative outlook
+        return { icon: LineChart, color: "text-amber-500" };
+      case "negative": 
         return { icon: TrendingDown, color: "text-rose-500" };
       default:
         return { icon: LineChart, color: "text-gray-500" };
@@ -67,7 +71,6 @@ const DashboardView = ({ insights }) => {
   const OutlookIcon = getMarketOutlookInfo(insights.marketOutlook).icon;
   const outlookColor = getMarketOutlookInfo(insights.marketOutlook).color;
 
-  // Format dates using date-fns
   const lastUpdatedDate = format(new Date(insights.lastUpdated), "dd/MM/yyyy");
   const nextUpdateDistance = formatDistanceToNow(
     new Date(insights.nextUpdate),
@@ -82,14 +85,12 @@ const DashboardView = ({ insights }) => {
         </Badge>
       </div>
 
-      {/* Market Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
               Market Outlook
             </CardTitle>{" "}
-            {/* Use a larger icon for better visibility */}
             <OutlookIcon className={`h-6 w-6 ${outlookColor}`} />
           </CardHeader>
           <CardContent>
@@ -107,7 +108,6 @@ const DashboardView = ({ insights }) => {
               Industry Growth
             </CardTitle>
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
-            {/* Use a larger icon for better visibility */}
             <TrendingUp className="h-6 w-6 text-emerald-500" />
           </CardHeader>
           <CardContent>
@@ -151,7 +151,6 @@ const DashboardView = ({ insights }) => {
         </Card>
       </div>
 
-      {/* Salary Ranges Chart */}
       <Card className="col-span-4 shadow-lg">
         <CardHeader>
           <CardTitle>Salary Ranges by Role</CardTitle>
@@ -160,44 +159,88 @@ const DashboardView = ({ insights }) => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="h-[400px]">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={salaryData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip
-                  content={({ active, payload, label }) => {
-                    if (active && payload && payload.length) {
-                      return (
-                        <div className="bg-background border rounded-lg p-2 shadow-md">
-                          <p className="font-medium">{label}</p>
-                          {payload.map((item) => (
-                            <p key={item.name} className="text-sm">
-                              {item.name}: ${item.value}K
-                            </p>
-                          ))}
+          <ChartContainer
+            config={{
+              min: {
+                label: "Minimum Salary",
+                color: "#10b981", // Green
+              },
+              median: {
+                label: "Median Salary", 
+                color: "#3b82f6", // Blue
+              },
+              max: {
+                label: "Maximum Salary",
+                color: "#8b5cf6", // Purple
+              },
+            }}
+            className="h-[400px]"
+          >
+            <BarChart data={salaryData}>
+              <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
+              <XAxis 
+                dataKey="name" 
+                tick={{ fontSize: 12 }}
+                tickLine={false}
+                axisLine={false}
+              />
+              <YAxis 
+                tick={{ fontSize: 12 }}
+                tickLine={false}
+                axisLine={false}
+              />
+              <ChartTooltip
+                cursor={{ fill: 'rgba(0, 0, 0, 0.1)' }}
+                content={({ active, payload, label }) => {
+                  if (!active || !payload?.length) return null;
+                  
+                  return (
+                    <div className="bg-background/95 backdrop-blur-sm border shadow-lg rounded-lg p-3 min-w-[120px]">
+                      <p className="font-medium text-foreground mb-2">{`Role: ${label}`}</p>
+                      {payload.map((item, index) => (
+                        <div key={index} className="flex items-center justify-between gap-2 mb-1">
+                          <div className="flex items-center gap-2">
+                            <div 
+                              className="w-3 h-3 rounded-full" 
+                              style={{ backgroundColor: item.color }}
+                            />
+                            <span className="text-sm text-muted-foreground">
+                              {item.name}:
+                            </span>
+                          </div>
+                          <span className="font-mono font-medium text-foreground">
+                            ${item.value}K
+                          </span>
                         </div>
-                      );
-                    }
-                    return null;
-                  }}
-                />
-                <Bar dataKey="min" fill="#94a3b8" name="Min Salary (K)" />{" "}
-                {/* Slate 400 */}
-                <Bar
-                  dataKey="median"
-                  fill="#64748b"
-                  name="Median Salary (K)"
-                />{" "}
-                <Bar dataKey="max" fill="#475569" name="Max Salary (K)" />{" "}
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
+                      ))}
+                    </div>
+                  );
+                }}
+              />
+              <ChartLegend content={<ChartLegendContent />} />
+              <Bar 
+                dataKey="min" 
+                fill="var(--color-min)" 
+                name="Minimum Salary"
+                radius={[2, 2, 0, 0]}
+              />
+              <Bar 
+                dataKey="median" 
+                fill="var(--color-median)" 
+                name="Median Salary"
+                radius={[2, 2, 0, 0]}
+              />
+              <Bar 
+                dataKey="max" 
+                fill="var(--color-max)" 
+                name="Maximum Salary"
+                radius={[2, 2, 0, 0]}
+              />
+            </BarChart>
+          </ChartContainer>
         </CardContent>
       </Card>
 
-      {/* Industry Trends */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card>
           <CardHeader>
@@ -215,7 +258,6 @@ const DashboardView = ({ insights }) => {
                     {trend}
                   </span>
                 </li>
-                // Add a subtle border or shadow to list items for better separation
               ))}
             </ul>
           </CardContent>
@@ -230,7 +272,6 @@ const DashboardView = ({ insights }) => {
             <div className="flex flex-wrap gap-2"></div>
           </CardContent>
           <CardFooter className="flex flex-wrap gap-2">
-            {/* Use CardFooter for badges to separate them from content */}
             <div className="flex flex-wrap gap-2">
               {insights.recommendedSkills.map((skill) => (
                 <Badge key={skill} variant="secondary" className="px-3 py-1">

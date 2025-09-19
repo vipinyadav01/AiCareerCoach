@@ -12,8 +12,6 @@ import { GitHubStars } from './github-stars'
 const Header = () => {
   return (
     <div className="fixed top-1.5 left-0 w-screen h-16 sm:h-18 bg-transparent z-50 flex gap-1 sm:gap-2 items-center justify-center px-2">
-
-
       <div className="h-full w-auto px-2 sm:px-3 md:px-4 flex items-center justify-center relative group transition-transform duration-200 hover:scale-105">
         <SignedOut>
           <Link href="/" className="flex items-center gap-2 sm:gap-3 relative z-10">
@@ -48,19 +46,17 @@ const Header = () => {
         <div className="pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-br from-gray-100/40 via-white/10 to-gray-300/20 dark:from-gray-700/30 dark:via-gray-800/20 dark:to-gray-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
-
+      {/* Navigation Section */}
       <div className="h-full flex-1 max-w-4xl bg-transparent backdrop-blur-lg rounded-lg flex items-center justify-center px-2 sm:px-4 md:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 dark:opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10 dark:from-blue-400/20 dark:via-transparent dark:to-purple-400/20"></div>
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 20">
-            <defs>
-              <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gray-300 dark:text-gray-600" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
-        </div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10 dark:from-blue-400/20 dark:via-transparent dark:to-purple-400/20"></div>
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 20">
+          <defs>
+            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-gray-300 dark:text-gray-600" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
 
         <SignedIn>
           <nav className="flex items-center gap-1 sm:gap-2 md:gap-3 lg:gap-4 relative z-10 w-full justify-center">
@@ -105,7 +101,6 @@ const Header = () => {
           </nav>
         </SignedIn>
 
-
         <SignedOut>
           <nav className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 relative z-10 w-full justify-center">
             <Link href="/" className="flex items-center gap-1 sm:gap-2 md:gap-3 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-all duration-200 group border border-transparent hover:border-blue-100 dark:hover:border-blue-800">
@@ -133,7 +128,7 @@ const Header = () => {
         </SignedOut>
       </div>
 
-
+      {/* User Section */}
       <SignedIn>
         <div className="h-full w-auto min-w-fit dark:bg-transparent backdrop-blur-lg rounded-lg flex flex-row items-center justify-center gap-1 sm:gap-2 px-2 sm:px-3 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl dark:shadow-black/50 dark:hover:shadow-black/70 relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-200/20 via-gray-200/20 to-gray-400/20 dark:from-gray-600/30 dark:via-gray-500/30 dark:to-gray-800/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -171,7 +166,7 @@ const Header = () => {
         </div>
       </SignedOut>
 
-
+      {/* Hidden Mobile Menu (unused but kept for potential future use) */}
       <div className="hidden">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
