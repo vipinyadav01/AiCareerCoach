@@ -15,19 +15,36 @@ const Header = () => {
 
 
       <div className="h-full w-auto px-2 sm:px-3 md:px-4 flex items-center justify-center relative group transition-transform duration-200 hover:scale-105">
-        <Link href="/" className="flex items-center gap-2 sm:gap-3 relative z-10">
-          <div className="h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center rounded-lg bg-white/80 dark:bg-gray-900/80 shadow-md border border-gray-200 dark:border-gray-800 transition-all">
-            <img
-              src="/favicon-32x32.png"
-              alt="Launch Track Logo"
-              className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
-              style={{ minWidth: 28, minHeight: 28 }}
-            />
-          </div>
-          <span className="ml-1 sm:ml-2 text-gray-800 dark:text-gray-100 text-sm sm:text-base md:text-lg font-bold font-nav tracking-tight max-sm:hidden">
-            Launch Track
-          </span>
-        </Link>
+        <SignedOut>
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 relative z-10">
+            <div className="h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center rounded-lg bg-white/80 dark:bg-gray-900/80 shadow-md border border-gray-200 dark:border-gray-800 transition-all">
+              <img
+                src="/favicon-32x32.png"
+                alt="Launch Track Logo"
+                className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
+                style={{ minWidth: 28, minHeight: 28 }}
+              />
+            </div>
+            <span className="ml-1 sm:ml-2 text-gray-800 dark:text-gray-100 text-sm sm:text-base md:text-lg font-bold font-nav tracking-tight max-sm:hidden">
+              Launch Track
+            </span>
+          </Link>
+        </SignedOut>
+        <SignedIn>
+          <Link href="/dashboard" className="flex items-center gap-2 sm:gap-3 relative z-10">
+            <div className="h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center rounded-lg bg-white/80 dark:bg-gray-900/80 shadow-md border border-gray-200 dark:border-gray-800 transition-all">
+              <img
+                src="/favicon-32x32.png"
+                alt="Launch Track Logo"
+                className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
+                style={{ minWidth: 28, minHeight: 28 }}
+              />
+            </div>
+            <span className="ml-1 sm:ml-2 text-gray-800 dark:text-gray-100 text-sm sm:text-base md:text-lg font-bold font-nav tracking-tight max-sm:hidden">
+              Launch Track
+            </span>
+          </Link>
+        </SignedIn>
         <div className="pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-br from-gray-100/40 via-white/10 to-gray-300/20 dark:from-gray-700/30 dark:via-gray-800/20 dark:to-gray-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
